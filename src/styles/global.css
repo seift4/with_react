@@ -447,7 +447,10 @@ transition: .5s;
     .nav{
                 padding: 0;
         width: 100%;
-        margin: 0;
+
+        height: 10vh;
+        padding: 0;
+        margin-top: 10px ;
     }
     .nav ul {
         margin-top: 34px;
@@ -1080,16 +1083,16 @@ margin-top: 80px;
 /* للشاشات الصغيرة جداً */
 @media (max-width: 480px) {
         .work-section {
-        height: 80vh; /* السماح بالتمدد إذا زاد المحتوى */
+        height: 97vh; /* السماح بالتمدد إذا زاد المحتوى */
         width: 96%;
-        top: 12vh; /* إزاحة بسيطة عن السكشن اللي قبله */
+        top: 1vh; /* إزاحة بسيطة عن السكشن اللي قبله */
         padding-bottom: 3rem;
     }
 
 
     .sec2{
                 position: relative;
-        bottom: 100px;
+        bottom: 30px;
         margin-right: 6px;
     }
 
@@ -1134,7 +1137,7 @@ margin-top: 80px;
 @media (max-width: 480px) {
     .parallax-media2 {
         position: relative;
-        bottom: 110px;
+        bottom: 30px;
         height: 35vh;
     }
 }
