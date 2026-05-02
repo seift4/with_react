@@ -1167,7 +1167,7 @@ margin-top: 80px;
         width: 99%;
     text-align: center;
     margin: 100vh auto 0 auto; 
-    border-radius: 25px;
+    border-radius: 25px 25px 0px 0px;
     position: relative; 
 
     z-index: 100000; 
@@ -1205,7 +1205,7 @@ margin-top: 80px;
 .seif {
         z-index: 2400; 
 
-    margin-top: 1.875rem; /* 30px */
+    margin-top: 1.975rem; /* 30px */
     width: 25%; 
     /* تعديل مهم: في الموبايل العرض يزيد */
     min-width: 17.5rem; /* 280px بدلاً من 250px لراحة العين */
@@ -1860,7 +1860,7 @@ fill: black;
 
     /* التأثير الأساسي: برواز رمادي وقلب شفاف */
     color: transparent;
-    -webkit-text-stroke: 1px #555;
+    -webkit-text-stroke: 1px #d6d6d6;
 
     /* تجهيز الخلفية اللي هتملى النص (اللون الأبيض) */
     background-image: linear-gradient(to top, white, white);
@@ -1882,6 +1882,19 @@ fill: black;
     text-align: start;
     word-spacing: -5px;
     margin-bottom: 80px;
+        /* التأثير الأساسي: برواز رمادي وقلب شفاف */
+    color: transparent;
+    -webkit-text-stroke: 1px #d6d6d6;
+
+    /* تجهيز الخلفية اللي هتملى النص (اللون الأبيض) */
+    background-image: linear-gradient(to top, white, white);
+    background-repeat: no-repeat;
+    background-position: bottom; /* تبدأ الملو من تحت */
+    background-size: 100% 0%;    /* العرض كامل والطول صفر في البداية */
+
+    /* قص الخلفية على شكل النص */
+    -webkit-background-clip: text;
+    background-clip: text;
 
 }
 .contact{
