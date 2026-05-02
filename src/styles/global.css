@@ -493,10 +493,11 @@ transition: .5s;
 /* قسم الـ Home */
 .home {
     padding-top: 10.625rem; /* 170px */
-    background-color: #000000;
+    background-color: #e1ff8e ;
 
     width: 100%;
     min-height: 100vh; /* أفضل من height الثابتة */
+
 }
 
 
@@ -581,7 +582,7 @@ transition: .5s;
     width: 15.625rem; /* 250px */
     max-width: 80%;
     font-size: 1.25rem; /* 20px */
-    color: #A5A6A8;
+    color: #ffffff;
 }
 
 /* القسم السفلي */
@@ -614,10 +615,10 @@ transition: .5s;
         z-index: 1;
     height: 30vh;
     border-radius: 25px;
-        background: #2E0410;/* اللون الأساسي */
+        background: #000000;/* اللون الأساسي */
     background-image: 
-        radial-gradient(at 0% 100%, #91ff00 0px, transparent 50%), 
-        radial-gradient(at 100% 0%, #b05f3d 0px, transparent 50%);
+        radial-gradient(at 100% 100%, #e1ff8e 0px, transparent 50%), 
+        radial-gradient(at 0% 0%, #e1ff8e 0px, transparent 50%);
    
         background-size: 200% 200%;
     animation: moveGlow 15s ease infinite;
@@ -644,10 +645,6 @@ transition: .5s;
 .bottom p{
     font-size: 250px;
     transition: .5s;
-}
-.bottom p:hover{
-    text-shadow: 10px 10px 10px #e1ff8e;
-
 }
 /* --- جزء التجاوب المكمل لأكوادك --- */
 
@@ -1347,6 +1344,10 @@ margin-top: 80px;
     .sec3 ul{
         gap: 16px;
     }
+    .seif:hover .card-inner {
+    transform: rotateY(0deg);
+}
+
     .back p {
         font-size: 0.9rem; /* تصغير أي نصوص إضافية */
     }
@@ -1833,7 +1834,30 @@ fill: black;
     .img {
         width: 240px;
     }
+            .row:hover {
+        padding-bottom: 0rem;
+    }
+
+.row:hover .title-area p {
+    
 }
+
+.row:hover .title-area svg {
+    fill: black;
+    margin-left: 0rem; /* 25px */
+    transform: rotate(0deg);
+}
+}
+
+
+
+
+
+
+
+
+
+
 
 .foter{
     padding-top:0px;
@@ -2058,4 +2082,6 @@ fill: black;
         right: 5px;
         width: 150px;
     }
+
+
 }
