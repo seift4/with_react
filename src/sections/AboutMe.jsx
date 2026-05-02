@@ -24,15 +24,6 @@ const AboutMe = () => {
 
     return (
         <section className="seif-section" ref={sectionRef}>
-                    <video 
-        src='/img/bg3.mp4'
-            autoPlay 
-            loop 
-            muted 
-            playsInline 
-            className="background-2"
-        >
-        </video>
             <div className="content" id="about">
                 <div className="coder sec3">
                     <h1 className="reveal">About Me</h1>
