@@ -65,7 +65,7 @@ const Home = () => {
                         <p>Creative</p>
                         <div className="img-container">
                             <video ref={videoRef} id="myModel" loop muted autoPlay playsInline>
-                                <source src="/img/5495781-uhd_2560_1080_30fps.mp4" type="video/mp4" />
+                                <source src="/img/vibe.mp4" type="video/mp4" />
                             </video>
                         </div>
                         <p>dev</p>
