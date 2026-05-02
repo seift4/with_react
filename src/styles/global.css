@@ -23,6 +23,7 @@
   justify-content: center;
   align-items: center;
   overflow: hidden;
+
 }
 .loader span {
   padding: 0;
@@ -1285,73 +1286,61 @@ margin-top: 80px;
 
 
 
+/* --- سكشن Skills التجاوب (Responsive) --- */
 
-
+/* للشاشات المتوسطة (Tablets) */
+@media (max-width: 1024px) {
+    .seif {
+        width: 40%; /* تكبير العرض قليلاً للتابلت */
+        height: 50vh; /* تقليل الارتفاع للحفاظ على الـ aspect-ratio */
+    }
+}
 
 /* للشاشات الصغيرة (Mobile) */
 @media (max-width: 768px) {
     .seif-section {
-                width: 100%;
-        height: 100VH;
-        margin-top: 50vh; /* تقليل المسافة في الموبايل */
+        height: auto; /* الموبايل محتاج ارتفاع مرن */
+        min-height: 100vh;
+        margin-top: 50vh; /* تقليل الفجوة العلوية لتناسب الـ Stacking */
         padding: 40px 0;
     }
-    
-    .gallary {
-display: none;
-    }
 
-        .work-section {
-        height: auto; /* عشان المحتوى ميتزنقش في الموبايل */
-        min-height: 100vh;
-        margin-top: 50vh; /* تقليل المسافة العلويّة */
-        padding-bottom: 40px;
-    }
-
-    .sec3 {
-        flex-direction: column;
-                position: relative;
-        right: 15PX;
-    }
-
-
-
-    .sec3 h1 {      
-        font-size: 25px; /* تصغير العنوان الضخم */
-        right: 0; /* إلغاء الإزاحة لليمين */
-        margin-bottom: 20px;
-                position: relative;
-        right: 115PX;
-    }
-
-    .sec3 ul {
+    .seif {
+        width: 85%; /* الكارت يكون عريض وواضح */
+        height: 60vh; /* السماح للـ aspect-ratio بالتحكم */
+        margin-top: 3rem;
         position: relative;
-        right: 8px;
-        width: 90%;
-        padding: 0;
-        gap: 15px;
-        font-size: 16px;
-        text-align: start;
-    }
-    .coder li{
-        font-size: 14px;
-    }
-    #seif{
-        width: 400PX;
-        height: 480PX;
-
-    }
-    .front{
-        position: relative;
-        right: 20px;
+        right: 15px;
+        perspective: 50rem; /* تقليل المنظور قليلاً للشاشات الصغيرة */
     }
 
+    .back h2 {
+        font-size: 1.2rem; /* تصغير الخط قليلاً */
+    }
+
+    /* تحسين الأداء: تقليل تعقيد الأنيميشن في الموبايل */
+    .card-inner {
+        transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
 }
 
-
-
-
-
+/* للشاشات الصغيرة جداً (X-Small) */
+@media (max-width: 480px) {
+    .seif-section {
+        width: 100%;
+        border-radius: 0; /* إلغاء الحواف في الشاشات الصغيرة جداً لملء المساحة */
+    }
+    .sec3{
+        position: relative;
+        right: 30px;
+    }
+    .sec3 ul{
+        gap: 16px;
+    }
+    .back p {
+        font-size: 0.9rem; /* تصغير أي نصوص إضافية */
+    }
+}
 
 
 
@@ -1754,34 +1743,87 @@ fill: black;
 .img:hover p {
     opacity: 1;
 }
+/* --- سكشن Works التجاوب (Responsive) --- */
 
-/* --- تعديلات التجاوب النهائية للشاشات الصغيرة --- */
-@media (max-width: 768px) {
-    .works {
-        height: auto;
-        padding-top: 3rem;
-        gap: 3rem;
+/* للشاشات المتوسطة (Tablets) */
+@media (max-width: 1024px) {
+    .works h1 {
+        margin-left: 5%; /* تقريب العنوان للمنتصف قليلاً */
     }
-    
-    .works h1, .row, .imgs {
-        margin-left: 5%; /* هامش أصغر للموبايل */
+    .row, .imgs {
         width: 90%;
-    }
-
-    .title-area {
-        right: 0.5rem;
-    }
-
-    .img {
-        margin-top: 0;
-        position: relative;
-        bottom: 80px;
-        width: 17.5rem; /* 280px */
-        height: 12.5rem; /* 200px */
+        margin-left: 5%;
     }
 }
 
+/* للشاشات الصغيرة (Mobile) */
+@media (max-width: 768px) {
+    .works {
+        gap: 3rem; /* تقليل الفجوات الكبيرة */
+        padding-top: 4rem;
+    }
 
+    .works h1 {
+        text-align: center;
+        margin-left: 0;
+        font-size: 2.5rem; /* حجم واضح ومناسب للموبايل */
+    }
+
+    .row {
+        width: 95%; /* أخذ مساحة الشاشة بالكامل تقريباً */
+        margin-left: 2.5%;
+        padding-top: 1.5rem;
+    }
+
+    .title-area {
+        right: 0; /* إلغاء الإزاحة السلبية عشان الكلام ميتكسرش */
+        padding: 0 10px;
+    }
+
+    .row .title-area p {
+        font-size: 1.2rem; /* تصغير الخط ليناسب عرض الموبايل */
+    }
+
+    .row .title-area svg {
+        font-size: 1.8rem; /* تصغير السهم */
+    }
+
+    /* تعديل حركة الـ Hover في الموبايل (تظهر عند اللمس) */
+    .row:hover {
+        padding-bottom: 1.5rem;
+    }
+
+    /* سكشن الصور (Marquee) */
+    .imgs {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 2rem;
+    }
+
+    .img {
+        width: 280px; /* تصغير عرض الكروت في الموبايل */
+        height: 200px; /* تصغير الارتفاع */
+    }
+
+    .img:hover {
+        transform: translateY(-15px); /* تقليل حركة الارتفاع عشان الشاشة صغيرة */
+    }
+    
+}
+
+/* للشاشات الصغيرة جداً (X-Small) */
+@media (max-width: 480px) {
+    .works{
+        height: auto;
+        padding-bottom: 60px;
+    }
+    .row .title-area p {
+        font-size: 1.7rem;
+    }
+    .img {
+        width: 240px;
+    }
+}
 
 .foter{
     padding-top:0px;
@@ -1941,6 +1983,7 @@ fill: black;
 /* للشاشات الصغيرة (Mobile) */
 @media (max-width: 768px) {
     .foter {
+        padding-top: 20px;
         height: auto; /* الموبايل محتاج طول مرن مش ثابت */
         gap: 40px;
         padding-bottom: 50px;

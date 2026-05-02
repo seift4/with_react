@@ -37,11 +37,11 @@ const Loader = () => {
                 left: 0,
                 width: '100%',
                 height: '100%',
-                backgroundColor: '#fff', // أو اللون اللي تحبه للخلفية
+                backgroundColor: '#ffffff', // أو اللون اللي تحبه للخلفية
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
-                zIndex: 9999
+                zIndex: 1000000000000
             }}
         >
             <div className="loader">

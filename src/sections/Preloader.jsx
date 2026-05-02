@@ -63,7 +63,7 @@ const Preloader = ({ onComplete }) => {
 // Styles
 const loaderStyle = {
     position: 'fixed', top: 0, left: 0, width: '100%', height: '100%',
-    backgroundColor: '#000', color: '#fff', zIndex: 10000,
+    backgroundColor: '#000', color: '#fff', zIndex: 1000000000000000000,
     display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'
 };
 const counterStyle = { position: 'absolute', bottom: '10%', right: '10%', fontSize: 'clamp(3rem, 10vw, 6rem)', fontWeight: 'bold' };
