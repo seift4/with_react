@@ -453,11 +453,20 @@ transition: .5s;
         margin-top: 10px ;
     }
     .nav ul {
+                padding-bottom: 0;
         margin-top: 34px;
         margin-right: 55px;
         gap: .8rem;
     }
+    
+    .nav ul li{
+            padding-bottom: 0;
+    }
+        .nav ul li a{
+            padding-bottom: 0;
+    }
     .nav ul li a span {
+        padding-bottom: 0;
         font-size: .8rem; /* تصغير أكتر للشاشات الرفيعة */
     }
     .logo{
@@ -465,6 +474,15 @@ transition: .5s;
         top: 5px;
     }
     /* إخفاء الأقواس في الشاشات المتناهية الصغر لتجنب الزحمة البصرية */
+
+    .nav ul a.active{
+    color:#e1ff8e;
+    border-bottom:solid 1px #e1ff8e ;
+    padding-bottom: 0px;
+}
+.nav ul a.active span{
+    color: #e1ff8e;
+}
 
 }
 
@@ -1137,7 +1155,7 @@ margin-top: 80px;
 @media (max-width: 480px) {
     .parallax-media2 {
         position: relative;
-        bottom: 30px;
+        bottom: 20px;
         height: 35vh;
     }
 }
@@ -2003,7 +2021,7 @@ fill: black;
         width: 100%;
         flex-direction: column; /* الروابط تحت بعض عشان المساحة */
         align-items: center;
-        gap: 30px;
+        gap: 0px;
         padding-top: 40px;
     }
 
@@ -2026,6 +2044,8 @@ fill: black;
         -webkit-text-stroke: 2px #000000;
     }
     .logoo{
+        position: relative;
+        right: 5px;
         width: 150px;
     }
 }
