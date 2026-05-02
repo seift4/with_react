@@ -981,7 +981,7 @@ margin-top: 80px;
    
     top: 4vh; 
     z-index: 200; /* لازم يكون أعلى من الـ About */
-     background: #fffffff7;
+     background: #e0e0e0;
     background-image: 
         radial-gradient(at 100% 100%, #1D293F 0px, transparent 40%), 
         radial-gradient(at 0% 0%, #1D293F 0px, transparent 40%);
@@ -1127,9 +1127,6 @@ margin-top: 80px;
 .parallax-media2 {
     width: 600px; /* العرض الأصلي للديسكتوب */
     height: 60vh;
-    outline: none;
-    margin: 0 auto;
-    display: block;
 }
 
 /* للشاشات المتوسطة (Tablets) */
