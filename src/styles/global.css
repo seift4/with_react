@@ -783,6 +783,8 @@ body{
 
 
 .about-section {
+        box-sizing: border-box;
+
         height: 92vh;
     width: 99%;
     text-align: center;
@@ -803,6 +805,8 @@ body{
 }
 
 .about-section {
+        box-sizing: border-box;
+
     background-color: var(--bg-dark);
     color: white;
     padding: 100px 5%;
@@ -818,6 +822,8 @@ body{
 
 /* تنسيق المحتوى الأساسي */
 .content1 {
+        box-sizing: border-box;
+
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -831,11 +837,15 @@ body{
 
 /* الجزء الخاص بالكلام */
 .coder1 {
+        box-sizing: border-box;
+
     flex: 1;
     min-width: 350px;
 }
 
 .coder1 h1 {
+        box-sizing: border-box;
+
     font-size: clamp(3rem, 8vw, 4.5rem); /* حجم خط متغير حسب الشاشة */
     font-weight: 900;
     text-transform: uppercase;
@@ -849,6 +859,8 @@ body{
 }
 
 .ul1 {
+        box-sizing: border-box;
+
     text-align: start;
     gap: 30px;
     list-style: none;
@@ -857,6 +869,8 @@ body{
 }
 
 .ul1 li {
+        box-sizing: border-box;
+
     font-size: 1.1rem;
     
     line-height: 1.5rem;
@@ -874,11 +888,15 @@ body{
 
 /* تنسيق الـ 3D Model */
 .parallax-media {
+        box-sizing: border-box;
+
     flex: 1;
     filter: drop-shadow(0 0 30px rgba(225, 255, 142, 0.2)); /* وهج خفيف */
 }
 /* شريط المهارات (Marquee) */
 .skills-marquee {
+        box-sizing: border-box;
+
     width: 100%;
     position: relative;
     bottom: 40px;
@@ -891,6 +909,8 @@ body{
 }
 
 .marquee-track0 {
+        box-sizing: border-box;
+
     display: flex;
     gap: 80px;
     animation: scroll 90s linear infinite;
@@ -903,6 +923,8 @@ body{
 }
 
 .skill-item {
+        box-sizing: border-box;
+
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -917,6 +939,7 @@ body{
 }
 
 .skill-item i {
+        box-sizing: border-box;
     font-size: 3rem;
     margin-bottom: 15px;
     color: var(--item-color, var(--primary-color)); /* بيستخدم لون المهارة أو اللون الموحد */
@@ -928,6 +951,8 @@ body{
     font-weight: bold;
     font-size: 0.9rem;
     letter-spacing: 2px;
+        box-sizing: border-box;
+
 }
 
 /* --- Media Queries للشاشات المختلفة --- */
@@ -1075,6 +1100,8 @@ body{
     padding: 100px 5%;
     display: flex;
     align-items: center;
+        box-sizing: border-box;
+
 }
 
 .content2 {
@@ -1084,6 +1111,8 @@ body{
     grid-template-columns: 1.2fr 0.8fr; /* تقسيم مساحة الكلام والموديل */
     gap: 40px;
     align-items: center;
+        box-sizing: border-box;
+
 }
 
 /* تنسيق النصوص */
@@ -1096,12 +1125,16 @@ body{
     line-height: 1;
     /* تأثير Stroke خفيف لو حابب */
     -webkit-text-stroke: 1px rgba(225, 255, 142, 0.3);
+        box-sizing: border-box;
+
 }
 
 .ul2 {
     list-style: none;
     padding: 0;
     width: 70%;
+        box-sizing: border-box;
+
 }
 
 .ul2 li {
@@ -1112,6 +1145,8 @@ body{
     line-height: 1.7;
     max-width: 600px;
     padding-left: 20px;
+      box-sizing: border-box;
+
     border-left: 2px solid #e1ff8e; /* خط جانبي بدل الـ bullet التقليدي */
 }
 
@@ -1120,6 +1155,8 @@ body{
     width: 100%;
     height: 500px;
     background: radial-gradient(circle, rgba(225, 255, 142, 0.05) 0%, transparent 70%);
+      box-sizing: border-box;
+
     border-radius: 50%; /* بيعمل هالة دائرية ورا الموديل */
 }
 
@@ -1130,12 +1167,16 @@ body{
     grid-column: 1 / -1; /* ياخد العرض بالكامل تحت الكلام والموديل */
     overflow: hidden;
     padding: 20px 0;
+        box-sizing: border-box;
+
     mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent); /* تلاشي من الجوانب */
 }
 
 .marquee-track1 {
     display: flex;
     gap: 30px;
+        box-sizing: border-box;
+
     width: max-content;
     animation: slideRight 40s linear infinite;
 }
@@ -1147,6 +1188,8 @@ body{
 
 /* كارت الصورة */
 .imag {
+        box-sizing: border-box;
+
     width: 350px;
     height: 220px;
     border-radius: 12px;
@@ -1158,6 +1201,8 @@ body{
 }
 
 .imag img {
+        box-sizing: border-box;
+
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -1166,12 +1211,16 @@ body{
 }
 
 .imag:hover {
+        box-sizing: border-box;
+
     border-color: #e1ff8e;
     box-shadow: 0 10px 30px rgba(225, 255, 142, 0.15);
     transform: scale(1.05) translateY(-5px);
 }
 
 .imag:hover img {
+        box-sizing: border-box;
+
     filter: grayscale(0%) contrast(1);
     transform: scale(1.1);
 }
