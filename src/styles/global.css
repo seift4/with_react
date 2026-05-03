@@ -305,17 +305,12 @@ body {
 .nav {
     position: fixed;
     z-index: 19900;
-    
-    /* خلفية بيضاء شفافة جداً */
-    background-color: rgba(255, 255, 255, 0.05); 
-    
-    /* أهم سطر: بيعمل بلور لأي حاجة "ورا" الناف بار */
-    backdrop-filter: blur(12px); 
-    -webkit-backdrop-filter: blur(10px); /* للدعم في متصفح Safari */
-    
-    /* إضافة حدود بسيطة عشان تبرز شكل الزجاج */
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    
+background: rgba(112, 112, 112, 0.105); /* زودنا النسبة شوية لـ 15% */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    /* إضافة shadow خفيف بيساعد جداً في إظهار تأثير الزجاج */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
     padding-top: 1rem;
     display: flex;
     width: 99%; /* خليها أقل من 100% لو عايز تبين شكل الـ radius */
