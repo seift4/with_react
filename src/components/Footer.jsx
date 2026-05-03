@@ -52,7 +52,7 @@ const Footer = () => {
                 {/* تأكد من مسار اللوجو في فولدر public/img */}
                 <img 
                     className="logoo" 
-                    src="/img/ChatGPT Image Mar 18, 2026, 07_35_21 PM.png" 
+                    src="/img/Asset 4@2x-8.png" 
                     alt="Logo" 
                 />
                 

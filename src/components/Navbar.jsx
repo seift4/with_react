@@ -39,7 +39,7 @@ const Navbar = () => {
             <a href="#home">
                 <img 
                     className="logo" 
-                    src="/img/ChatGPT Image Mar 18, 2026, 07_35_21 PM.png" 
+                    src="/img/Asset 3@2x-8.png" 
                     alt="Logo" 
                 />
             </a>
