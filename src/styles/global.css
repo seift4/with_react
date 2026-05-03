@@ -1225,9 +1225,6 @@ body{
         height: 150px;
         flex-shrink: 0; /* امنع الصور إنها تصغر عن حجمها */
     }
-    * {
-    box-sizing: border-box;
-}
 
 body, html {
     margin: 0;
