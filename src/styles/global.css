@@ -952,6 +952,7 @@ body{
 /* للشاشات المتوسطة (Tablets) */
 @media (max-width: 450px) {
     .about-section{
+        width: 100%;
         overflow-x: hidden;
     }
     .coder.s1 ul{
@@ -971,6 +972,199 @@ body{
     }
 
 }
+/*/////////////////////////////////////////////////////////// */
+.work-section {
+
+        z-index: 9899;
+        width: 98%;
+    text-align: center;
+    margin: 100vh auto 0 auto; 
+    border-radius: 25px;
+    position: sticky; 
+    top: 1vh; 
+
+}
+/* التنسيق الأساسي للسكشن */
+.work-section {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #050505; /* أسود عميق */
+    padding: 100px 5%;
+    display: flex;
+    align-items: center;
+}
+
+.work-section .content {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* تقسيم الشاشة لنصين */
+    gap: 50px;
+    align-items: center;
+    width: 100%;
+}
+
+/* الجزء الخاص بالنصوص */
+.coder.sec2 {
+    z-index: 2;
+}
+
+.coder h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    color: #e1ff8e;
+    margin-bottom: 90px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+}
+
+.ul3 {
+    margin-left: 150px;
+    list-style: none;
+    padding: 0;
+    width: 70%;
+    position: relative;
+    bottom: 30px;
+}
+
+.ul3 li {
+    font-size: 1.1rem;
+    color: #ccc;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    padding-left: 20px;
+    border-left: 2px solid #e1ff8e; /* خط فسفوري رفيع بجانب الكلام */
+    transition: 0.3s;
+}
+
+.ul3 li:hover {
+    color: #e1ff8e;
+    transform: translateX(10px);
+}
+
+/* تنسيق الـ 3D Model */
+#Model {
+    width: 100%;
+    height: 500px;
+    outline: none;
+    position: relative;
+    right: 80px;
+    cursor: grab;
+    /* إضافة توهج خلف الموديل */
+    filter: drop-shadow(0 0 30px rgba(225, 255, 142, 0.1));
+}
+
+/* تنسيق جاليري الصور (Marquee) */
+.imgs.gallary {
+    grid-column: span 2; /* الجاليري ياخد عرض السكشن كله تحت */
+    width: 70%;
+    overflow: hidden;
+    padding-top: 50px;
+    position: relative;
+    bottom: 200px;
+}
+
+.marquee-track1 {
+    display: flex;
+    gap: 20px;
+}
+
+.imag {
+    flex: 0 0 300px; /* عرض الصورة */
+    height: 200px;
+    border-radius: 15px;
+    overflow: hidden;
+    border: 1px solid rgba(225, 255, 142, 0.2);
+    filter: grayscale(100%); /* الصور تبدأ أبيض وأسود */
+    transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.imag img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.imag:hover {
+    filter: grayscale(0%); /* تلون عند الـ hover */
+    transform: scale(1.05) translateY(-10px);
+    border-color: #e1ff8e;
+    box-shadow: 0 10px 30px rgba(225, 255, 142, 0.2);
+}
+
+/* Responsive التنسيق للموبايل */
+@media (max-width: 992px) {
+    .work-section .content {
+        grid-template-columns: 1fr; /* النص والموديل تحت بعض */
+    }
+    
+    #Model {
+        height: 350px;
+        order: -1; /* الموديل يظهر الأول في الموبايل */
+    }
+}
+.ul3 {
+    margin-left: 10%; /* نسبة مئوية بدل 150px */
+    list-style: none;
+    padding: 0;
+    width: 80%; /* تكبير العرض قليلاً */
+    position: relative;
+}
+
+.imgs.gallary {
+    grid-column: span 2;
+    width: 100%; /* الجاليري يملأ العرض المتاح */
+    overflow: hidden;
+    padding-top: 50px;
+    margin-top: 50px; /* بدل bottom: 200px عشان ميغطيش على اللي فوقه */
+}
+/* للشاشات المتوسطة (Tablets) */
+@media (max-width: 450px) {
+    .work-section{
+        width: 100%;
+        overflow-x: hidden;
+    }
+    .coder.sec2{
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        right: 40px;
+    }
+    .coder.sec2 ul{
+        position: relative;
+        right: 30px;
+        width: 85%;
+
+    }
+    .coder.sec2 ul li{
+        font-size: 16px;
+    }
+    .coder.sec2 h1{
+        width: 100%;
+        font-size: 36px;
+        text-align: center;
+        position: relative;
+        left: 8px;
+    }
+    .imgs.gallary {
+    grid-column: span 2;
+    width: 100%; /* الجاليري يملأ العرض المتاح */
+    overflow: hidden;
+    padding-top: 50px;
+    margin-top: 70px; /* بدل bottom: 200px عشان ميغطيش على اللي فوقه */
+}
+#Model{
+    display: none;
+}
+.parallax-media{
+    display: none;
+}
+.work-section{
+    overflow-x: hidden;
+}
+
+}
+/*///////////////////////////////////////////////////////////// */
+
 
 .seif-section {
         
@@ -1210,6 +1404,7 @@ body{
     .seif-section{
         overflow-x: hidden;
         height: 145vh;
+        width: 100%;
     }
     .coder.sec3{
         gap: 0;
