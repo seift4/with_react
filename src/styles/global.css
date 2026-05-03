@@ -1315,6 +1315,7 @@ body, html {
 
 /* السكشن الأساسي */
 .seif-section {
+        box-sizing: border-box;
     background-color: #0a0a0a;
     padding: 100px 5%;
     min-height: 80vh;
@@ -1327,6 +1328,8 @@ body, html {
 
 /* --- السكشن الأساسي --- */
 .seif-section {
+        box-sizing: border-box;
+
     background-color: #0a0a0a;
     padding: 80px 5%;
     min-height: 100vh;
@@ -1337,6 +1340,8 @@ body, html {
 }
 
 .content3 {
+        box-sizing: border-box;
+
     max-width: 1200px;
     width: 100%;
     display: flex;
@@ -1348,11 +1353,15 @@ body, html {
 
 /* --- جزء البيانات الشخصية --- */
 .coder3 {
+        box-sizing: border-box;
+
     flex: 1;
     min-width: 300px;
 }
 
 .coder3 h1 {
+        box-sizing: border-box;
+
     text-align: start;
     font-size: clamp(2.5rem, 6vw, 4rem);
     font-weight: 900;
@@ -1365,13 +1374,17 @@ body, html {
 }
 
 .ul3 {
+        box-sizing: border-box;
+
     list-style: none;
     padding: 0;
     width: 100%;
     max-width: 500px;
 }
 
+
 .ul3 li {
+        box-sizing: border-box;
     font-size: clamp(0.9rem, 2vw, 1.1rem);
     color: #ccc;
     padding: 15px 20px;
@@ -1393,6 +1406,8 @@ body, html {
 
 /* --- تأثير الـ Flip Card --- */
 .seif {
+        box-sizing: border-box;
+
     width: 350px;
     max-width: 100%; /* لضمان عدم خروج الكارت عن الشاشة في الموبايل */
     height: 480px;
@@ -1401,6 +1416,7 @@ body, html {
 }
 
 .card-inner {
+        box-sizing: border-box;
     width: 100%;
     height: 100%;
     position: relative;
@@ -1414,6 +1430,8 @@ body, html {
 }
 
 .front, .back {
+        box-sizing: border-box;
+
     position: absolute;
     width: 100%;
     height: 100%;
@@ -1424,6 +1442,8 @@ body, html {
 }
 
 .front {
+        box-sizing: border-box;
+
     background: #111;
 }
 
@@ -1440,6 +1460,8 @@ body, html {
 }
 
 .back {
+        box-sizing: border-box;
+
     background: #e1ff8e;
     transform: rotateY(180deg);
     display: flex;
@@ -1450,6 +1472,8 @@ body, html {
 }
 
 .back h2 {
+        box-sizing: border-box;
+
     color: #000;
     font-size: 2.2rem;
     font-weight: 900;
