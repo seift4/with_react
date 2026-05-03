@@ -1447,7 +1447,6 @@ body{
     padding-top: 100px;
     height: 220vh;
     width: 100%;
-    z-index: 989979;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -1476,17 +1475,25 @@ body{
 
 }
 .row{
-
+    /* خلفية بيضاء شفافة جداً */
+    background-color: rgba(255, 255, 255, 0.05); 
+    
+    /* أهم سطر: بيعمل بلور لأي حاجة "ورا" الناف بار */
+    backdrop-filter: blur(12px); 
+    -webkit-backdrop-filter: blur(10px); /* للدعم في متصفح Safari */
+    
+    /* إضافة حدود بسيطة عشان تبرز شكل الزجاج */
+    border: 1px solid rgba(255, 255, 255, 0.1);
 height: 50px;    display: flex;
     flex-direction: column;
     padding-bottom: 0px;
     gap: 0px;text-align: start;
     flex-wrap: wrap;
-    padding-top: 35px;
     width: 80%;
-    border-top: solid 1px rgb(150, 143, 143);
         margin-left: 190px;
     transition: all 1.5s ease;
+    justify-content: center;
+    padding-left: 20px;
 }
 
 .title-area{
@@ -1496,6 +1503,7 @@ height: 50px;    display: flex;
     gap: 1px;
     position: relative;
     right: 20px;
+    
 }
 .row  .title-area p{
     font-weight: 0;
@@ -1651,7 +1659,7 @@ fill: black;
     min-height: 100vh; /* أفضل من 220vh لضمان تغطية الشاشة */
     width: 100%;
         background-color: #000000;
-    z-index: 989979;
+    z-index: 9899;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -1689,12 +1697,10 @@ fill: black;
     flex-wrap: wrap;
     padding-top: 2.1875rem; /* 35px */
     width: 80%;
-    border-top: solid 0.0625rem rgb(150, 143, 143); /* 1px */
     margin-left: 10%; /* توحيد الهامش مع العنوان */
     transition: all 1s ease;
     position: relative;
     border-radius: 0.625rem; /* 10px */
-    background-image: linear-gradient(#e1ff8e, #e1ff8e);
     background-position: bottom;
     background-repeat: no-repeat;
     background-size: 100% 0%;
@@ -2145,9 +2151,11 @@ fill: black;
         right: 5px;
         width: 150px;
     }
-    .home, .about-section, .works, .seif-section, .foter, .work-section, .about-section, .content, .imgs.gallary, .coder {
-        overflow-x: hidden;
-    }
-
-
+html, body {
+    overflow-x: hidden;
+}
+p, h1, span {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
 }
