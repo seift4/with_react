@@ -281,26 +281,7 @@ body {
 
 
 
-.glass-footer {
-    /* تحديد المكان في أسفل الشاشة */
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    border-radius: 4px;
-    /* التأثيرات اللي إنت اخترتها مع شوية تحسينات */
-    background-color: rgba(0, 0, 0, 0.311); 
-    backdrop-filter: blur(20px); 
-    -webkit-backdrop-filter: blur(40px); 
-    
-    /* تنسيق المحتوى الداخلي */
-    padding: 2rem;
-    text-align: center;
-    color: white; /* تأكد أن لون الخط يتناسب مع خلفية موقعك */
-    
-    /* لضمان ظهوره فوق أي عناصر أخرى */
-    z-index: 999999999;
-}
+
 
 .nav {
     position: fixed;
@@ -483,8 +464,8 @@ transition: .5s;
     }
     .nav ul {
                 padding-bottom: 0;
-        margin-top: 34px;
-        margin-right: 35px;
+        margin-top: 20px;
+        margin-right: 25px;
         gap: .8rem;
     }
     
