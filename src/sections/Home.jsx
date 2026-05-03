@@ -61,13 +61,13 @@ const Home = () => {
                         <p>I’m Seif Tarek, a web developer and engineer. Welcome to my portfolio!</p>
                     </div>
                     <div className="bottom">
-                        <p>Creative</p>
+                        <p className='creative-text'>Creative</p>
                         <div className="img-container">
                             <video ref={videoRef} id="myModel" loop muted autoPlay playsInline>
-                                <source src="/img/Vibe.mp4" type="video/mp4" />
+                                <source src="/img/coding.mp4" type="video/mp4" />
                             </video>
                         </div>
-                        <p>dev</p>
+                        <p className='creative-text'>dev</p>
                     </div>
                 </div>
             </section>

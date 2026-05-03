@@ -272,7 +272,7 @@ html {
 
 body {
     overflow-x: hidden;
-    background-color: #000000;
+    background-color: #000;
     text-align: center;
 }
 
@@ -285,7 +285,7 @@ body {
 
 .nav {
     position: fixed;
-    z-index: 1999000;
+    z-index: 19900;
     
     /* خلفية بيضاء شفافة جداً */
     background-color: rgba(255, 255, 255, 0.05); 
@@ -299,7 +299,7 @@ body {
     
     padding-top: 1rem;
     display: flex;
-    width: 95%; /* خليها أقل من 100% لو عايز تبين شكل الـ radius */
+    width: 99%; /* خليها أقل من 100% لو عايز تبين شكل الـ radius */
     left: 50%;
     transform: translateX(-50%); /* سنترة الـ Nav بما إنه fixed */
     justify-content: space-between;
@@ -313,7 +313,7 @@ body {
     margin-right: 30px;
     list-style: none;
     display: flex;
-    gap: 2.5rem; /* 40px مسافة متوازنة */
+    gap: 2.3rem; /* 40px مسافة متوازنة */
 }
 
 .nav ul a {
@@ -380,6 +380,9 @@ transition: .5s;
     border-bottom:solid 1px #e1ff8e ;
     padding-bottom: 7px;
 
+}
+.nav ul a.active span{
+    color: #e1ff8e;
 }
 
 
@@ -483,6 +486,13 @@ transition: .5s;
 .nav ul a.active span{
     color: #e1ff8e;
 }
+.nav ul a:hover::before,
+.nav ul a:hover::after {
+    opacity: 0;
+} 
+.cursor-dot{
+    display: none;
+}
 
 }
 
@@ -490,16 +500,46 @@ transition: .5s;
 
 
 
-/* قسم الـ Home */
 .home {
-    padding-top: 10.625rem; /* 170px */
-    background-color: #e1ff8e ;
-
+    padding-top: 10.625rem; 
     width: 100%;
-    min-height: 100vh; /* أفضل من height الثابتة */
-
+    min-height: 100vh;
+    background-color: #000; /* خلفية سوداء صريحة */
+    position: relative;
+    overflow: hidden; /* عشان الأنيميشن ميطلعش بره القسم */
 }
 
+/* إضافة طبقة الأنيميشن */
+.home::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* إنشاء تأثير توهج ناعم باللون المطلوب */
+    background: 
+        radial-gradient(circle at 20% 30%, rgba(225, 255, 142, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(225, 255, 142, 0.1) 0%, transparent 40%);
+    filter: blur(60px);
+    z-index: 0;
+    animation: moveBlobs 10s ease-in-out infinite alternate;
+}
+
+/* حركة انسيابية للدوائر */
+@keyframes moveBlobs {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+    100% {
+        transform: translate(5%, 10%) scale(1.1);
+    }
+}
+
+.home > * {
+    position: relative;
+    z-index: 1;
+}
 
 /* تنسيق فيديو الخلفية */
 .background-video {
@@ -522,7 +562,6 @@ transition: .5s;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.4); /* سواد شفاف بنسبة 40% */
     z-index: 2;
 }
 /* قسم النصوص */
@@ -551,6 +590,7 @@ transition: .5s;
 /* أقواس الـ Top section */
 .top::before,
 .top::after {
+    color: #e1ff8e;
     content: "";
     position: absolute;
     top: 0;
@@ -558,17 +598,19 @@ transition: .5s;
     width: 5.625rem; /* 90px */
     border-top: 0.375rem solid transparent;
     border-bottom: 0.375rem solid transparent;
+
 }
 
 .top::before {
     left: 0;
-    border-left: 0.375rem solid white; /* 6px */
+    border-left: 0.375rem solid #e1ff8e; /* 6px */
     border-radius: 50% 0 0 50%;
+
 }
 
 .top::after {
     right: 0;
-    border-right: 0.375rem solid white;
+    border-right: 0.375rem solid #e1ff8e;
     border-radius: 0 50% 50% 0;
 }
 
@@ -615,14 +657,6 @@ transition: .5s;
         z-index: 1;
     height: 30vh;
     border-radius: 25px;
-        background: #000000;/* اللون الأساسي */
-    background-image: 
-        radial-gradient(at 100% 100%, #e1ff8e 0px, transparent 50%), 
-        radial-gradient(at 0% 0%, #e1ff8e 0px, transparent 50%);
-   
-        background-size: 200% 200%;
-    animation: moveGlow 15s ease infinite;
-    
 
     padding: 10px;
     width: 400px;   /* العرض الأصلي */
@@ -642,10 +676,16 @@ transition: .5s;
     transform: translate(-50%, -50%); /* يخليها في نص الشاشة بالظبط */
     margin: 0;
 }
+
 .bottom p{
-    font-size: 250px;
+    text-transform: uppercase;
+    color: #e1ff8e;
+    font-size: 180px;
     transition: .5s;
+    font-weight: 900;
+    margin-top: 9px;
 }
+
 /* --- جزء التجاوب المكمل لأكوادك --- */
 
 /* للشاشات المتوسطة (Tablets) */
@@ -709,22 +749,22 @@ body{
     
 .top::before {
     left: 35px;
-    border-left: 0.375rem solid white; /* 6px */
+    border-left: 0.375rem solid; /* 6px */
     border-radius: 50% 0 0 50%;
 }
 
 .top::after {
     right: 35px;
-    border-right: 0.375rem solid white;
+    border-right: 0.375rem solid ;
     border-radius: 0 50% 50% 0;
 }
 
     .bottom{
         position: relative;
-        bottom: 200px;
+        bottom: 160px;
     }
     .bottom p {
-        font-size: 60px;
+        font-size: 50px;
     }
 }
 
@@ -735,9 +775,10 @@ body{
 
 
 
-/* 1. سكشن About */
+
+
 .about-section {
-    height: 92vh;
+        height: 92vh;
     width: 99%;
     text-align: center;
     margin: 100vh auto 0 auto; 
@@ -745,471 +786,527 @@ body{
     position: sticky; 
     top: 4vh; 
     z-index: 100; 
-    background: #00000073; 
-    background-image: 
-        radial-gradient(at 0% 100%,  #853A19 0px, transparent 40%), 
-        radial-gradient(at 100% 0%,  #101839 0px, transparent 40%);
-    background-size: 200% 200%;
-    animation: moveGlow 10s ease infinite;
-}
-
-.content {
-    color: rgb(255, 255, 255);
-    padding-top: 3.75rem; /* 60px */
-    flex-wrap: wrap;
-    display: flex;
-    justify-content: space-around;
-    align-content: flex-end;
-    
-}
-
-.coder {
-    text-align: start;
-    width: 50%;
+    background-color: #050505;
+    padding: 80px 0;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    align-items: flex-start;
-}
-
-.coder h1 {
-    letter-spacing: -4px;
-    text-transform: uppercase;
-    color: rgb(255, 255, 255);
-    position: relative;
-    right: 1.2rem; /* 30px */
-    padding: 0;
-    margin: 0;
-    /* استخدام clamp عشان الخط يصغر ويكبر بانسيابية */
-    font-size: 4.5rem
-}
-
-.coder ul {
-    margin-left: 40px;
-    color: rgb(255, 255, 255);
-    display: flex;
-    flex-direction: column;
-    list-style: circle;
-    width: 100%;
-    max-width: 35.625rem; /* 650px */
-    gap: 1.875rem; /* 30px */
-    font-size: 1.2rem; /* 20px */
-}
-
-.coder li { color: rgb(255, 255, 255); }
-
-.about-content .pralallax-media {
-    height: 50%;
-}
-
-/* Skills Marquee */
-.skills-marquee {
-    width: 70%;
     overflow: hidden;
-    padding: 3.75rem 0; /* 60px */
-    margin: 2.5rem 0; /* 40px */
+}
+
+/* توزيع المحتوى (Text & Model) */
+.about-section .content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 1300px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.coder.s1 {
     position: relative;
-    bottom: 2.5rem; /* 40px */
-    mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
-    -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+    right: 100px;
+    flex: 1;
+    min-width: 400px;
+    padding: 0 40px;
+}
+
+.coder.s1 h1 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    color: #e1ff8e; /* لونك المفضل */
+    font-weight: 900;
+    margin-bottom: 55px;
+    text-transform: uppercase;
+    text-shadow: 0 0 20px rgba(225, 255, 142, 0.3);
+    width: 695px;
+    position: relative;
+    right: 20px;
+}
+
+.ul {
+    list-style: none;
+    padding: 0;
+}
+
+.ul li {
+    font-size: 1.1rem;
+    color: #ccc;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    padding-left: 20px;
+    border-left: 2px solid #e1ff8e; /* خط فسفوري رفيع بجانب الكلام */
+    transition: 0.3s;
+}
+
+.ul li:hover {
+    color: #e1ff8e;
+    transform: translateX(10px);
+}
+
+/* تنسيق الـ 3D Model */
+.parallax-media {
+    flex: 1;
+    filter: drop-shadow(0 0 50px rgba(225, 255, 142, 0.15));
+    transition: 0.5s ease;
+    position: relative;
+    left: 120px;
+}
+
+/* شريط المهارات (Marquee) */
+.skills-marquee {
+    position: relative;
+    bottom: 40px;
+    width: 90%;
+    overflow: hidden;
+    background: rgba(225, 255, 142, 0.03); /* خلفية خفيفة جداً */
+    padding: 40px 0;
+    margin-top: 50px;
+    border-top: 1px solid rgba(225, 255, 142, 0.1);
+    border-bottom: 1px solid rgba(225, 255, 142, 0.1);
 }
 
 .marquee-track0 {
+        width: 90%;
     display: flex;
-    width: max-content;
-    gap: 2.5rem; /* 40px */
-    animation: marqueeScroll 25s linear infinite;
+    align-items: center;
+    gap: 60px; /* المسافة بين المهارات */
 }
 
 .skill-item {
-    flex: 0 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.625rem; /* 10px */
-    width: 6.25rem; /* 100px */
-    transition: transform 0.3s ease, opacity 0.3s ease;
+    gap: 15px;
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     cursor: pointer;
+    min-width: 100px;
 }
 
 .skill-item i {
-    font-size: 3.125rem; /* 50px */
-    color: var(--item-color);
+    font-size: 3rem;
+    color: #555; /* اللون الأساسي باهت */
     transition: 0.3s;
 }
 
 .skill-item p {
-    font-weight: 700;
-    font-size: 0.875rem; /* 14px */
-    color: var(--text-color);
-    opacity: 0;
-    margin: 0;
+    color: #777;
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
 }
 
-.skill-item:hover { transform: translateY(-0.625rem) scale(1.1); }
-.skill-item:hover p { opacity: 1; }
-.skill-item:hover i { filter: drop-shadow(0 0 0.625rem var(--item-color)); }
-
-.skills-marquee:hover .marquee-track0 { animation-play-state: paused; }
-
-@keyframes marqueeScroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+/* السحر هنا: الألوان اللي أنت عرفتها في الـ JS */
+.skill-item:hover i {
+    color: var(--item-color);
+    transform: scale(1.2) rotate(5deg);
+    filter: drop-shadow(0 0 15px var(--item-color));
 }
 
-/* --- سكشن About التجاوب (Responsive) --- */
-
-/* للشاشات الكبيرة (Laptops) */
-@media (max-width: 1200px) {
-    .coder h1 {
-        font-size: 3.5rem; /* تصغير الخط قليلاً */
-    }
-    .skills-marquee {
-        width: 90%; /* تكبير عرض الماركي في الشاشات المتوسطة */
-    }
+.skill-item:hover p {
+    color: #fff;
+    text-shadow: 0 0 5px var(--item-color);
 }
 
-/* للشاشات المتوسطة (Tablets) */
-@media (max-width: 992px) {
-    .coder {
-        width: 80%; /* النص ياخد مساحة أكبر */
-    }
-    .coder h1 {
-        right: 0; /* إلغاء الإزاحة لليمين */
-        text-align: center;
-        align-self: center;
-    }
-    .coder ul {
-        margin-left: 0;
-        align-items: center; /* سنترة القائمة */
-    }
-}
-
-/* للشاشات الصغيرة (Mobile) */
+/* Responsive */
 @media (max-width: 768px) {
-    .about-section {
-        height: auto; /* الموبايل محتاج طول مرن */
-        min-height: 92vh;
-        width: 95%;
-        margin-top: 10vh; /* تقليل المسافة العلوية */
-        top: 2vh;
-        padding-bottom: 2rem;
-    }
-
-    .content {
-        flex-direction: column; /* العناصر تحت بعض */
-        align-items: center;
-        padding-top: 2rem;
-    }
-
-    .coder {
-        width: 90%;
-        align-items: center;
+    .about-section .content {
+        flex-direction: column;
         text-align: center;
     }
-
-    .coder h1 {
-        font-size: 2.2rem; /* حجم مناسب للموبايل */
-        letter-spacing: -2px;
-        margin-bottom: 1.5rem;
+    .u1 li {
+        text-align: left;
     }
-
-    .coder ul {
-        gap: 1rem;
-        font-size: 1rem;
-        padding: 0 10px;
-        list-style: none; /* إلغاء الدوائر عشان السنترة تبان أنضف */
+    .parallax-media {
+        width: 100% !important;
+        height: 40vh !important;
     }
+}
+/* تعديل في الكود الأساسي */
+.coder.s1 {
+    position: relative;
+    right: 0; /* رجعه للصفر هنا ونتحكم فيه بالـ padding */
+    flex: 1;
+    min-width: 400px;
+    padding: 0 40px;
+}
 
-    .skills-marquee {
+.coder.s1 h1 {
+    /* ... أكوادك ... */
+    width: 100%; /* بدل 695px الثابتة */
+    max-width: 700px;
+    right: 0; 
+}
+
+.parallax-media {
+    flex: 1;
+    position: relative;
+    left: 0; /* رجعه للصفر هنا */
+}
+/* للشاشات المتوسطة (Tablets) */
+@media (max-width: 450px) {
+    .coder.s1 ul{
+        width: 85%;
+
+    }
+    .coder.s1 ul li{
+        font-size: 16px;
+    }
+    .coder.s1 h1{
         width: 100%;
-        bottom: 0;
-        margin: 1.5rem 0;
-        padding: 2rem 0;
-    }
+        font-size: 37px;
+        text-align: center;
+        position: relative;
+        right: 24px;
 
-    .skill-item {
-        width: 5rem; /* تصغير حجم أيقونات المهارات */
-    }
-
-    .skill-item i {
-        font-size: 2.5rem;
-    }
-}
-
-/* للشاشات الصغيرة جداً (X-Small) */
-@media (max-width: 480px) {
-    .coder{
-margin-top: 80px;
-        gap: 30px;
-    }
-    .coder h1 {
-        font-size: 2rem;
-    }
-        .coder ul {
-            gap: 30px;
-    }
-    
-
-    .parallax-media{
-        display: none;
-    }
-    .marquee-track0 {
-        gap: 1.5rem; /* تقليل المسافة بين الأيقونات */
     }
 
 }
-
 /*/////////////////////////////////////////////////////////// */
 .work-section {
 
-        z-index: 9899799;
+        z-index: 9899;
         width: 99%;
     text-align: center;
     margin: 100vh auto 0 auto; 
     border-radius: 25px;
     position: sticky; 
     top: 1vh; 
-    z-index: 100; 
-    text-align: center;
-    margin: 100vh auto 0 auto; /* مهم جداً: الـ 100vh هنا هي اللي بتخلق مساحة السكرول عشان يظهر بعد الـ About */
-    border-radius: 25px;
-   
-    top: 4vh; 
-    z-index: 200; /* لازم يكون أعلى من الـ About */
-     background: #e0e0e0;
-    background-image: 
-        radial-gradient(at 100% 100%, #1D293F 0px, transparent 40%), 
-        radial-gradient(at 0% 0%, #1D293F 0px, transparent 40%);
-    background-size: 200% 200%;
-    animation: moveGlow 8s ease infinite;
-    height: 92.5vh;
+
 }
-.sec2{
-    position: relative;
-    left: 20px;
-}
-.sec2 h1{
-    color: #1D293F;
-   font-size: 4.5rem;
-}
-.sec2 ul li{
-        color: #1D293F;
-}
-.ul3{
-    height: 250px;
+/* التنسيق الأساسي للسكشن */
+.work-section {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #050505; /* أسود عميق */
+    padding: 100px 5%;
+    display: flex;
+    align-items: center;
 }
 
-.gallary {
+.work-section .content {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* تقسيم الشاشة لنصين */
+    gap: 50px;
+    align-items: center;
+    width: 100%;
+}
+
+/* الجزء الخاص بالنصوص */
+.coder.sec2 {
+    z-index: 2;
+}
+
+.coder h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    color: #e1ff8e;
+    margin-bottom: 90px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+}
+
+.ul3 {
+    margin-left: 150px;
+    list-style: none;
+    padding: 0;
+    width: 70%;
     position: relative;
-    bottom: 150px;
-    margin: 6.25rem auto 0 auto; /* بدل margin-left الكبير استخدمنا auto للسنترة */
-    overflow: hidden; 
-    width: 85%; /* وسعنا المساحة شوية للمرونة */
-    padding: 2.5rem 0; 
-    user-select: none;
-    overflow-x: auto;
-    scrollbar-width: none;
+    bottom: 30px;
+}
+
+.ul3 li {
+    font-size: 1.1rem;
+    color: #ccc;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    padding-left: 20px;
+    border-left: 2px solid #e1ff8e; /* خط فسفوري رفيع بجانب الكلام */
+    transition: 0.3s;
+}
+
+.ul3 li:hover {
+    color: #e1ff8e;
+    transform: translateX(10px);
+}
+
+/* تنسيق الـ 3D Model */
+#Model {
+    width: 100%;
+    height: 500px;
+    outline: none;
+    position: relative;
+    right: 80px;
+    cursor: grab;
+    /* إضافة توهج خلف الموديل */
+    filter: drop-shadow(0 0 30px rgba(225, 255, 142, 0.1));
+}
+
+/* تنسيق جاليري الصور (Marquee) */
+.imgs.gallary {
+    grid-column: span 2; /* الجاليري ياخد عرض السكشن كله تحت */
+    width: 70%;
+    overflow: hidden;
+    padding-top: 50px;
+    position: relative;
+    bottom: 200px;
+}
+
+.marquee-track1 {
+    display: flex;
+    gap: 20px;
 }
 
 .imag {
-    display: flex;
-    flex-direction: column;
-    border-radius: 1.5625rem;
-    height: 10.625rem; /* 250px */
-    flex-shrink: 0;
-    width: 20.625rem; /* 650px */
-    max-width: 80vw; /* ضمان عدم خروجه عن شاشة الموبايل */
-    margin: 0 0.9375rem;
-    background: var(--text-color);
-    transition: transform 0.4s ease;
-    will-change: transform;
-    gap: 1.25rem;
-        border-radius: 1.5625rem;
+    flex: 0 0 300px; /* عرض الصورة */
+    height: 200px;
+    border-radius: 15px;
+    overflow: hidden;
+    border: 1px solid rgba(225, 255, 142, 0.2);
+    filter: grayscale(100%); /* الصور تبدأ أبيض وأسود */
+    transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .imag img {
-    border-radius: 1.5625rem;
-    opacity: .9;
-    height: 100%; 
     width: 100%;
+    height: 100%;
     object-fit: cover;
-    display: block;
 }
 
-/* --- سكشن Work التجاوب (Responsive) --- */
-
-/* للشاشات الكبيرة والمتوسطة */
-@media (max-width: 1024px) {
-    .sec2 h1 {
-        font-size: 3rem; /* تصغير العنوان */
-    }
-    .imag {
-        width: 25rem; /* تقليل عرض الكارت شوية */
-    }
+.imag:hover {
+    filter: grayscale(0%); /* تلون عند الـ hover */
+    transform: scale(1.05) translateY(-10px);
+    border-color: #e1ff8e;
+    box-shadow: 0 10px 30px rgba(225, 255, 142, 0.2);
 }
 
-/* للشاشات الصغيرة (Mobile) */
-@media (max-width: 768px) {
-    .work-section {
-        height: auto; /* السماح بالتمدد إذا زاد المحتوى */
-        width: 96%;
-        top: 6vh; /* إزاحة بسيطة عن السكشن اللي قبله */
-        padding-bottom: 3rem;
+/* Responsive التنسيق للموبايل */
+@media (max-width: 992px) {
+    .work-section .content {
+        grid-template-columns: 1fr; /* النص والموديل تحت بعض */
     }
-
-    .sec2 {
-        left: 0; /* إلغاء الإزاحة اليسارية */
-        padding: 0 1rem;
-    }
-
-    .sec2 h1 {
-        font-size: 2.2rem;
-        margin-top: 2rem;
-    }
-
-    .gallary {
-        bottom: 0; /* إلغاء الإزاحة السفلية العنيفة */
-        margin-top: 2rem;
-        width: 100%;
-        padding: 1rem 0.5rem;
-    }
-
-    .imag {
-        width: 18rem; /* عرض مناسب جداً لشاشة الموبايل */
-        height: 12rem; /* تقليل الارتفاع للحفاظ على التناسب */
-        margin: 0 0.5rem;
-    }
-
-    /* تحسين تجربة التصفح في المعرض للموبايل */
-    .gallary {
-        display: flex;
-        overflow-x: scroll;
-        -webkit-overflow-scrolling: touch; /* سكرول ناعم جداً على آيفون */
-        scroll-snap-type: x mandatory; /* يخلي الصور "تلقط" في النص */
-    }
-
-    .imag {
-        scroll-snap-align: center; /* سنترة الصورة عند السكرول */
+    
+    #Model {
+        height: 350px;
+        order: -1; /* الموديل يظهر الأول في الموبايل */
     }
 }
-
-/* للشاشات الصغيرة جداً */
-@media (max-width: 480px) {
-        .work-section {
-        height: 97vh; /* السماح بالتمدد إذا زاد المحتوى */
-        width: 96%;
-        top: 1vh; /* إزاحة بسيطة عن السكشن اللي قبله */
-        padding-bottom: 3rem;
-    }
-
-
-    .sec2{
-                position: relative;
-        bottom: 30px;
-        margin-right: 6px;
-    }
-
-    .sec2 h1 {
-
-        font-size: 2rem;
-    }
-
-        .gallary {
-        display: none;
-    }
-
-}
-.parallax-media2 {
-    width: 600px; /* العرض الأصلي للديسكتوب */
-    height: 60vh;
+.ul3 {
+    margin-left: 10%; /* نسبة مئوية بدل 150px */
+    list-style: none;
+    padding: 0;
+    width: 80%; /* تكبير العرض قليلاً */
+    position: relative;
 }
 
+.imgs.gallary {
+    grid-column: span 2;
+    width: 100%; /* الجاليري يملأ العرض المتاح */
+    overflow: hidden;
+    padding-top: 50px;
+    margin-top: 50px; /* بدل bottom: 200px عشان ميغطيش على اللي فوقه */
+}
 /* للشاشات المتوسطة (Tablets) */
-@media (max-width: 1024px) {
-    .parallax-media2 {
-        width: 450px;
-        height: 50vh;
-    }
-}
-
-/* للشاشات الصغيرة (Mobile) */
-@media (max-width: 768px) {
-    .parallax-media2 {
-        width: 95vw; /* ياخد عرض الشاشة بالكامل تقريباً */
-        height: 40vh; /* تقليل الارتفاع عشان مياخدش نص الشاشة بالطول */
-        
-        /* تحسين الأداء في الموبايل */
-        --poster-color: transparent; 
-    }
-}
-
-/* للشاشات الصغيرة جداً */
-@media (max-width: 480px) {
-    .parallax-media2 {
+@media (max-width: 450px) {
+    .coder.sec2{
+        text-align: center;
+        justify-content: center;
+        align-items: center;
         position: relative;
-        bottom: 20px;
-        height: 35vh;
+        right: 40px;
     }
+    .coder.sec2 ul{
+        position: relative;
+        right: 30px;
+        width: 85%;
+
+    }
+    .coder.sec2 ul li{
+        font-size: 16px;
+    }
+    .coder.sec2 h1{
+        width: 100%;
+        font-size: 36px;
+        text-align: center;
+        position: relative;
+        left: 8px;
+    }
+    .imgs.gallary {
+    grid-column: span 2;
+    width: 100%; /* الجاليري يملأ العرض المتاح */
+    overflow: hidden;
+    padding-top: 50px;
+    margin-top: 70px; /* بدل bottom: 200px عشان ميغطيش على اللي فوقه */
 }
 
+}
 /*///////////////////////////////////////////////////////////// */
 
 
-
-
-/* 3. سكشن Skills */
 .seif-section {
-        width: 99%;
-    text-align: center;
-    margin: 100vh auto 0 auto; 
-    border-radius: 25px 25px 0px 0px;
-    position: relative; 
-
-    z-index: 100000; 
-
-             background: #000000; /* اللون الأساسي */
-    background-image: 
-        radial-gradient(at 0% 100%, #9ebb83 0px, transparent 40%), 
-        radial-gradient(at 100% 0%, #9ebb83 0px, transparent 40%);
-   
-        background-size: 200% 200%;
-    animation: moveGlow 8s ease infinite;
-    height: 98vh;
-
-
+        
+    /* خلفية بيضاء شفافة جداً */
+    background-color: rgba(1, 1, 1, 0.603); 
     
-
+    /* أهم سطر: بيعمل بلور لأي حاجة "ورا" الناف بار */
+    backdrop-filter: blur(12px); 
+    -webkit-backdrop-filter: blur(10px); /* للدعم في متصفح Safari */
+    
+    /* إضافة حدود بسيطة عشان تبرز شكل الزجاج */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    width: 100%;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 5%;
+    overflow: hidden;
+    position: relative;
+    z-index: 10000;
 }
 
-.sec3{
-
-        z-index: 2400; 
-
-}
-.sec3 h1 {
-        z-index: 2400; 
-
-    color: white;
+.seif-section .content {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr; /* مساحة أكبر للكلام */
+    gap: 60px;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
 }
 
-.sec3 ul li {
-    color: white;
+/* تنسيق النصوص */
+.coder.sec3 h1 {
+    position: relative;
+    right: 400PX;
+    bottom: 30PX;
+    font-size: 3.5rem;
+    color: #e1ff8e;
+    margin-bottom: 60px;
+    font-weight: 900;
+    text-transform: uppercase;
 }
 
+.coder.sec3 ul {
+    position: relative;
+    right: 199px;
+    list-style: none;
+    padding: 0;
+}
+
+.coder.sec3 ul li {
+    font-size: 1.1rem;
+    color: #e0e0e0;
+    margin-bottom: 15px;
+    padding: 12px 20px;
+    background: rgba(225, 255, 142, 0.03); /* خلفية شفافة جداً */
+    border-radius: 8px;
+    border-left: 3px solid #e1ff8e;
+    transition: 0.3s ease;
+}
+
+.coder.sec3 ul li:hover {
+    background: rgba(225, 255, 142, 0.1);
+    transform: translateX(10px);
+}
+
+/* كارت الصورة (The Flip Card) */
+.seif {
+    width: 350px;
+    height: 450px;
+    perspective: 1000px; /* ضروري لتأثير الـ 3D */
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+    cursor: pointer;
+}
+
+.seif:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+.front, .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* يخفي الظهر لما يكون الوش ظاهر */
+    border-radius: 20px;
+    border: 2px solid rgba(225, 255, 142, 0.3);
+    overflow: hidden;
+}
+
+.front {
+    background: #111;
+}
+
+.front img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(30%); /* لمسة سينمائية */
+}
+
+.back {
+    background: #e1ff8e; /* الظهر لونه فسفوري */
+    transform: rotateY(180deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-shadow: 0 0 30px rgba(225, 255, 142, 0.4);
+}
+
+.back h2 {
+    color: #000;
+    font-size: 2rem;
+    text-align: center;
+    font-weight: 900;
+    transform: translateZ(50px); /* يخلي النص كأنه بارز */
+}
+
+/* إضافة توهج خلف الكارت */
+.seif::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #e1ff8e;
+    filter: blur(100px);
+    opacity: 0.1;
+    z-index: -1;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .seif-section .content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .seif {
+        margin: 0 auto;
+    }
+    .coder.sec3 ul li {
+        text-align: left;
+    }
+}
 /* الحاوية الرئيسية */
 .seif {
+    position: relative;
+    bottom: 30px;
+        left: 50px;
         z-index: 2400; 
 
     margin-top: 1.975rem; /* 30px */
-    width: 25%; 
-    /* تعديل مهم: في الموبايل العرض يزيد */
-    min-width: 17.5rem; /* 280px بدلاً من 250px لراحة العين */
     aspect-ratio: 1 / 1; 
     perspective: 62.5rem; /* 1000px */
-    height: 80vh;
-    max-width: 90vw; /* ضمان عدم خروجها عن الشاشة */
+    height: 72vh;
+    width: 450px;
+    
 }
 
 /* الشاشات الصغيرة (Mobile) */
@@ -1259,12 +1356,6 @@ margin-top: 80px;
 /* الوجه الخلفي مع تأثير الـ Glow المتحرك */
 .back {
     background: #000000;
-    background-image: 
-        radial-gradient(at 0% 0%, rgba(255, 255, 255, 0.9) 0px, transparent 35%), 
-        radial-gradient(at 100% 100%, rgb(255, 255, 255) 0px, transparent 35%);
-    background-size: 150% 150%;
-    animation: moveGlow 4s ease infinite;
-    color: white;
     transform: rotateY(180deg);
     display: flex;
     flex-direction: column;
@@ -1276,98 +1367,68 @@ margin-top: 80px;
 
 /* تنسيق النص الخلفي */
 .back h2 {
+    color: #e1ff8e;
     margin: 0;
     font-size: 1.5rem; 
     text-transform: uppercase;
     letter-spacing: 0.0625rem; /* 1px */
-    text-shadow: 0.0625rem 0.0625rem 0.125rem rgba(0,0,0,0.5);
-}
-
-/* أنيميشن الـ Glow */
-@keyframes moveGlow {
-    0%, 100% { background-position: 0% 0%; }
-    50% { background-position: 100% 100%; }
+    text-shadow: 0.0625rem 0.0625rem 0.125rem white;
 }
 
 
 
 
-
-/* --- سكشن Skills التجاوب (Responsive) --- */
-
-/* للشاشات المتوسطة (Tablets) */
-@media (max-width: 1024px) {
-    .seif {
-        width: 40%; /* تكبير العرض قليلاً للتابلت */
-        height: 50vh; /* تقليل الارتفاع للحفاظ على الـ aspect-ratio */
+@media (max-width: 450px) {
+    .seif-section{
+        height: 145vh;
     }
-}
-
-/* للشاشات الصغيرة (Mobile) */
-@media (max-width: 768px) {
-    .seif-section {
-        height: auto; /* الموبايل محتاج ارتفاع مرن */
-        min-height: 100vh;
-        margin-top: 50vh; /* تقليل الفجوة العلوية لتناسب الـ Stacking */
-        padding: 40px 0;
-    }
-
-    .seif {
-        width: 85%; /* الكارت يكون عريض وواضح */
-        height: 60vh; /* السماح للـ aspect-ratio بالتحكم */
-        margin-top: 3rem;
+    .coder.sec3{
+        gap: 0;
+        margin-top: 190px;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
         position: relative;
-        right: 15px;
-        perspective: 50rem; /* تقليل المنظور قليلاً للشاشات الصغيرة */
+        right: 40px;
     }
+    .coder.sec3 ul{
+        position: relative;
+        left: 50px;
+        width: 85%;
+        bottom: 40px;
 
-    .back h2 {
-        font-size: 1.2rem; /* تصغير الخط قليلاً */
     }
-
-    /* تحسين الأداء: تقليل تعقيد الأنيميشن في الموبايل */
-    .card-inner {
-        transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    .coder.sec3 ul li{
+        font-size: 16px;
     }
-}
-
-/* للشاشات الصغيرة جداً (X-Small) */
-@media (max-width: 480px) {
-    .seif-section {
+    .coder.sec3 h1{
         width: 100%;
-        border-radius: 0; /* إلغاء الحواف في الشاشات الصغيرة جداً لملء المساحة */
-    }
-    .sec3{
+        font-size: 36px;
+        text-align: center;
         position: relative;
-        right: 30px;
+        right: 48px;
     }
-    .sec3 ul{
-        gap: 16px;
-    }
-    .seif:hover .card-inner {
+    /* الحاوية الرئيسية */
+.seif {
+    position: relative;
+    bottom: 80px;
+    left: -20PX;
+    z-index: 2400; 
+
+    margin-top: 1.975rem; /* 30px */
+    aspect-ratio: 1 / 1; 
+    perspective: 62.5rem; /* 1000px */
+    height: 70vh;
+    width: 400px;
+    
+}
+
+.seif:hover .card-inner {
     transform: rotateY(0deg);
 }
 
-    .back p {
-        font-size: 0.9rem; /* تصغير أي نصوص إضافية */
-    }
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

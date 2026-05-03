@@ -54,7 +54,7 @@ const Preloader = ({ onComplete }) => {
             <div className="counter" style={counterStyle}>{count}</div>
             <div className="loader-text" style={textWrapperStyle}>
                 {/* لاحظ إضافة visibility: hidden هنا */}
-                <h1 style={{ ...h1Style, visibility: "hidden" }}>SEIF TAREK</h1>
+                <h1 style={{ ...h1Style, visibility: "hidden", color:"#e1ff8e" }}>SEIF TAREK</h1>
             </div>
         </div>
     );
@@ -63,7 +63,7 @@ const Preloader = ({ onComplete }) => {
 // Styles
 const loaderStyle = {
     position: 'fixed', top: 0, left: 0, width: '100%', height: '100%',
-    backgroundColor: '#e1ff8e ', color: '#000000 ', zIndex: 1000000000000000000,
+    backgroundColor: '#000000 ', color: '#e1ff8e', zIndex: 1000000000000000000,
     display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'
 };
 const counterStyle = { position: 'absolute', bottom: '10%', right: '10%', fontSize: 'clamp(3rem, 10vw, 6rem)', fontWeight: 'bold' };

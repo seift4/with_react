@@ -69,7 +69,7 @@ const About = () => {
             <div className="content">
                 <div className="coder s1">
                     <h1 className="reveal">Creative Coder</h1>
-                    <ul className="u1 reveal">
+                    <ul className="ul reveal">
                         <li>I’m a creative coder driven by a deep passion for programming, especially in the world of web development.</li>
                         <li>I enjoy turning ideas into interactive and visually engaging digital experiences.</li>
                         <li>For me, coding is not just about functionality—it’s about creativity, problem-solving, and building something meaningful.</li>
