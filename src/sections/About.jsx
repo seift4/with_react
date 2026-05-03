@@ -64,51 +64,52 @@ const About = () => {
         { name: 'Tailwind', icon: 'devicon-tailwindcss-plain', color: '#38b2ac' },
     ];
 
-    return (
-        <section className="about-section" ref={sectionRef}>
-            <div className="content">
-                <div className="coder s1">
-                    <h1 className="reveal">Creative Coder</h1>
-                    <ul className="ul reveal">
-                        <li>I’m a creative coder driven by a deep passion for programming, especially in the world of web development.</li>
-                        <li>I enjoy turning ideas into interactive and visually engaging digital experiences.</li>
-                        <li>For me, coding is not just about functionality—it’s about creativity, problem-solving, and building something meaningful.</li>
-                        <li>I’m constantly exploring new technologies, improving my skills, and pushing myself to create modern, innovative web solutions.</li>
-                    </ul>
-                </div>
-
-                {/* الـ 3D Model */}
-                <model-viewer 
-                    class="parallax-media" 
-                    id="my" 
-                    src="/3D/sci_-_fi_computer_game_ready.glb" 
-                    alt="A 3D model" 
-                    auto-rotate 
-                    environment-image="neutral" 
-                    exposure="1" 
-                    ar 
-                    style={{ width: '500px', height: '60vh' }}
-                ></model-viewer>
-
-                {/* شريط المهارات */}
-                <div className="skills-marquee">
-                    <div className="marquee-track0" ref={marqueeRef}>
-                        {skills.map((skill, index) => (
-                            <div 
-                                key={index} 
-                                className="skill-item" 
-                                style={{ '--item-color': skill.color }}
-                            >
-                                <i className={`${skill.icon} fa-2xl`}></i>
-                                <p>{skill.name}</p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-                <div className="spacer"></div>
+  return (
+    <section className="about-section" ref={sectionRef}>
+        <div className="content">
+            <div className="coder s1">
+                <h1 className="reveal">Creative Coder</h1>
+                <ul className="ul reveal">
+                    <li>I’m a creative coder driven by a deep passion for programming, especially in the world of web development.</li>
+                    <li>I enjoy turning ideas into interactive and visually engaging digital experiences.</li>
+                    <li>For me, coding is not just about functionality—it’s about creativity, problem-solving, and building something meaningful.</li>
+                    <li>I’m constantly exploring new technologies, improving my skills, and pushing myself to create modern, innovative web solutions.</li>
+                </ul>
             </div>
-        </section>
-    );
-};
+
+            {/* الـ 3D Model - شيلنا الـ width الثابت */}
+            <model-viewer 
+                class="parallax-media" 
+                id="my" 
+                src="/3D/sci_-_fi_computer_game_ready.glb" 
+                alt="A 3D model" 
+                auto-rotate 
+                camera-controls /* ضفت دي عشان المستخدم يقدر يلفه بنفسه */
+                enable-zoom={false} /* عشان ميبوظش السكرول في الموبايل */
+                environment-image="neutral" 
+                exposure="1" 
+                ar 
+                style={{ width: '100%', maxWidth: '500px', height: '60vh' }}
+            ></model-viewer>
+
+            {/* شريط المهارات - تكرار الداتا للحصول على Seamless Loop */}
+            <div className="skills-marquee">
+                <div className="marquee-track0" ref={marqueeRef}>
+                    {[...skills, ...skills].map((skill, index) => (
+                        <div 
+                            key={index} 
+                            className="skill-item" 
+                            style={{ '--item-color': skill.color }}
+                        >
+                            <i className={`${skill.icon} fa-2xl`}></i>
+                            <p>{skill.name}</p>
+                        </div>
+                    ))}
+                </div>
+            </div>
+            <div className="spacer"></div>
+        </div>
+    </section>
+);};
 
 export default About;

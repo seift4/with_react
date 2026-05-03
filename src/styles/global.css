@@ -953,6 +953,118 @@ body{
     position: relative;
     right: 0; /* لغيت الـ 20px عشان الموبايل */
 }
+/* --- About Section Core --- */
+.about-section {
+    min-height: 92vh; /* أفضل من height الثابتة */
+    width: 98%;
+    margin: 100vh auto 0 auto;
+    border-radius: 1.5625rem;
+    position: sticky;
+    top: 4vh;
+    z-index: 100;
+    background-color: #050505;
+    padding: 60px 0; /* تقليل البادنج قليلاً للموبايل */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.about-section .content {
+    display: flex;
+    flex-direction: row; /* الأساس ديسكتوب */
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    max-width: 1300px;
+    margin: 0 auto;
+    width: 100%;
+    gap: 20px;
+}
+
+/* --- Text Area --- */
+.coder.s1 {
+    flex: 1;
+    min-width: 320px; /* تقليلها عشان الموبايلات الصغيرة */
+    padding: 0 40px;
+    text-align: left;
+}
+
+.coder.s1 h1 {
+    font-size: clamp(2.2rem, 6vw, 4.5rem);
+    color: #e1ff8e;
+    font-weight: 900;
+    margin-bottom: 35px;
+    text-transform: uppercase;
+    text-shadow: 0 0 20px rgba(225, 255, 142, 0.2);
+    width: 100%;
+    max-width: 695px;
+}
+
+.ul {
+    list-style: none;
+    padding: 0;
+}
+
+.ul li {
+    font-size: 1.05rem;
+    color: #ccc;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    padding-left: 15px;
+    border-left: 2px solid #e1ff8e;
+    transition: 0.3s ease-out;
+}
+
+.ul li:hover {
+    color: #e1ff8e;
+    transform: translateX(8px);
+}
+
+/* --- 3D Model Styling --- */
+.parallax-media {
+    flex: 1;
+    min-width: 300px;
+    height: 60vh;
+    filter: drop-shadow(0 0 40px rgba(225, 255, 142, 0.1));
+    outline: none;
+}
+
+/* --- Responsive Fixes --- */
+@media (max-width: 992px) {
+    .about-section .content {
+        flex-direction: column; /* تحويل لعمودي في التابلت والموبايل */
+        padding: 20px;
+    }
+    
+    .coder.s1 {
+        padding: 0 20px;
+        order: 2; /* النص يظهر تحت الموديل */
+    }
+
+    .parallax-media {
+        order: 1; /* الموديل يظهر فوق */
+        height: 45vh;
+        width: 100%;
+    }
+
+    .coder.s1 h1 {
+        text-align: center;
+        margin: 0 auto 30px auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-section {
+        top: 2vh;
+        padding: 40px 0;
+    }
+    
+    .ul li {
+        font-size: 0.95rem;
+        text-align: left; /* الحفاظ على الليفت في النقاط بيدي شكل أنضف */
+    }
+}
 
 /*/////////////////////////////////////////////////////////// */
 .work-section {
