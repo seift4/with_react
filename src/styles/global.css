@@ -1861,9 +1861,6 @@ fill: black;
     font-size: clamp(2rem, 4vw, 3.125rem); /* يتغير من 24px لـ 50px */
 }
 
-.r5 {
-    border-bottom: solid 0.0625rem rgb(150, 143, 143);
-}
 
 .row .title-area svg {
     font-size: 4rem; /* 64px approx */
