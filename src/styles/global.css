@@ -2143,7 +2143,7 @@ fill: black;
         right: 5px;
         width: 150px;
     }
-    *{
+    .home, .about-section, .works, .seif-section, .foter, .work-section, .about-section {
         overflow-x: hidden;
     }
 
