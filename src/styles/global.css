@@ -2170,9 +2170,16 @@ fill: black;
         right: 5px;
         width: 150px;
     }
-p, h1, span {
+
+
+}
+@media (max-width: 768px){
+
+    p, h1, span {
     overflow-wrap: break-word;
     word-wrap: break-word;
 }
-
+body{
+    overflow-x: hidden;
+}
 }
