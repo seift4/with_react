@@ -945,29 +945,41 @@ body{
 /* 2. شاشات الموبايل الكبيرة والتابلت الصغير (Portrait) */
 @media (max-width: 768px) {
     .about-section {
+            box-sizing: border-box;
+
         padding: 60px 20px;
     }
     
     .content1 {
+            box-sizing: border-box;
+
         text-align: center;
     }
 
     .coder1 {
+            box-sizing: border-box;
+
         min-width: 100%;
     }
 
     .ul1 {
+            box-sizing: border-box;
+
         margin: 0 auto;
         text-align: center;
     }
 
     .ul1 li {
+            box-sizing: border-box;
+
         border-right: none;
         padding: 10px 0;
         margin-bottom: 10px;
     }
 
     .skills-marquee {
+            box-sizing: border-box;
+
         bottom: 0;
         margin-top: 30px;
     }
@@ -976,27 +988,38 @@ body{
 /* 3. شاشات الموبايل الصغيرة جداً */
 @media (max-width: 480px) {
     .parallax-media{
+            box-sizing: border-box;
         display: none;
     }
     .parallax-media2{
+            box-sizing: border-box;
+
         display: none;
     }
 
     .coder1 h1 {
+            box-sizing: border-box;
+
         margin-top: 20px;
         font-size: 2.2rem;
     }
     .coder1 ul{
+            box-sizing: border-box;
+
         position: relative;
         right: 60px;
         width: 70%;
     }
     
     .skill-item i {
+            box-sizing: border-box;
+
         font-size: 2rem;
     }
     
     .marquee-track0 {
+            box-sizing: border-box;
+
         gap: 40px;
     }
 }
@@ -1004,6 +1027,8 @@ body{
 @media (max-width: 480px) {
     /* 1. ضبط الحاوية الكبرى */
     .about-section {
+            box-sizing: border-box;
+
         overflow-x: hidden; /* هنا مسموح لأننا سنصلح الـ sticky بالأسفل */
         width: 100%;
         padding: 40px 15px; /* تقليل المسافات الجانبية */
@@ -1011,6 +1036,7 @@ body{
 
     /* 2. إصلاح الـ h1 */
     .coder1 h1 {
+            box-sizing: border-box;
         right: 0 !important; /* إلغاء الإزاحة التي تسبب الخروج عن الشاشة */
         margin-right: 0 !important;
         width: 100%;
@@ -1020,6 +1046,7 @@ body{
 
     /* 3. إصلاح عرض النصوص */
     .coder1 {
+            box-sizing: border-box;
         min-width: 100% !important; /* منع العنصر من تجاوز عرض الشاشة */
         flex: none;
     }
