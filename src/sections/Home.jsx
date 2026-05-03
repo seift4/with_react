@@ -70,6 +70,7 @@ const Home = () => {
                     </div>
                 </div>
             </section>
+            <div class="glass-footer"></div>
         </>
     );
 }
