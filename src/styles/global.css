@@ -988,6 +988,7 @@ body{
     }
 
     .ul1 {
+        
             box-sizing: border-box;
 
         margin: 0 auto;
@@ -995,6 +996,9 @@ body{
     }
 
     .ul1 li {
+           border-bottom: 1px solid rgba(225, 255, 142, 0.3);
+           border-left: none;
+     
             box-sizing: border-box;
 
         border-right: none;
@@ -1005,7 +1009,7 @@ body{
     .skills-marquee {
             box-sizing: border-box;
 
-        bottom: 0;
+        bottom: 60px;
         margin-top: 30px;
     }
 }
@@ -1024,8 +1028,9 @@ body{
 
     .coder1 h1 {
             box-sizing: border-box;
+            margin-left: 35px;
 
-        margin-top: 20px;
+        margin-top: 70px;
         font-size: 2.2rem;
     }
     .coder1 ul{
@@ -1053,10 +1058,12 @@ body{
     /* 1. ضبط الحاوية الكبرى */
     .about-section {
             box-sizing: border-box;
+            height: 100vh;
 
         overflow-x: hidden; /* هنا مسموح لأننا سنصلح الـ sticky بالأسفل */
         width: 100%;
         padding: 40px 15px; /* تقليل المسافات الجانبية */
+        top: 0;
     }
 
     /* 2. إصلاح الـ h1 */
@@ -1264,11 +1271,6 @@ body{
         height: 180px;
     }
 
-    .imgs.gallary {
-        position: relative;
-        top: -50px;
-        margin-top: 20px;
-    }
 }
 @media (max-width: 768px) {
     /* 1. السكشن الرئيسي */
@@ -1276,14 +1278,14 @@ body{
         overflow-x: hidden; /* ضروري هنا عشان ندفن أي لغم يظهر من الماركي */
         width: 100%;
         padding: 60px 15px;
+        top: 0;
     }
 
     /* 2. حاوية الصور (الجاليري) */
     .imgs.gallary {
-        position: static; /* الغي الـ bottom والـ position عشان ميبوظش الحسابات */
-        margin-top: 20px;
+        position: relative;
+        bottom: 100px;
         width: 100vw; /* خليه ياخد عرض الشاشة بالظبط */
-        left: -15px; /* تعويض الـ padding بتاع الـ section */
         mask-image: none; /* الغي الـ mask في الموبايل لأنه بيعمل مشاكل Render */
         -webkit-mask-image: none;
     }
@@ -1301,6 +1303,16 @@ body{
         height: 150px;
         flex-shrink: 0; /* امنع الصور إنها تصغر عن حجمها */
     }
+      .coder2 ul{
+            box-sizing: border-box;
+
+        width: 90%;
+    }
+    .coder2 ul li{
+        width: 100%;
+        color: white;
+    }
+    
 
 body, html {
     margin: 0;
@@ -1410,7 +1422,7 @@ body, html {
 
     width: 350px;
     max-width: 100%; /* لضمان عدم خروج الكارت عن الشاشة في الموبايل */
-    height: 480px;
+    height: 540px;
     perspective: 1500px;
     position: relative;
 }
@@ -1565,6 +1577,12 @@ body, html {
     .ul3 li:hover {
         transform: translateX(5px); /* تقليل الحركة في الموبايل عشان الشاشة ضيقة */
     }
+    .seif:hover .card-inner {
+    transform: rotateY(0deg);
+}
+.seif:hover .front img {
+    filter: grayscale(0%);
+}
 }
 
 /* ////////////////////////////////////////////// */
@@ -2223,7 +2241,7 @@ fill: black;
         overflow-x: hidden;
         padding-top: 20px;
         height: auto; /* الموبايل محتاج طول مرن مش ثابت */
-        gap: 40px;
+        gap: 0px;
         padding-bottom: 50px;
     }
     .p2{
@@ -2242,11 +2260,13 @@ fill: black;
     }
 
     .contact {
+        padding-top: 0;
+        margin-top: 0;
         margin-left: 0;
         width: 100%;
         flex-direction: column; /* الروابط تحت بعض عشان المساحة */
         align-items: center;
-        gap: 0px;
+        gap: 30px;
         padding-top: 40px;
     }
 
@@ -2269,8 +2289,8 @@ fill: black;
         -webkit-text-stroke: 2px #000000;
     }
     .logoo{
-        position: relative;
-        right: 5px;
+        position: absolute;
+        top: 0;
         width: 150px;
     }
 
