@@ -2285,6 +2285,8 @@ fill: black;
     }
 
     .contact {
+        position: relative;
+        bottom: 10px;
         padding-top: 0;
         margin-top: 0;
         margin-left: 0;
@@ -2292,7 +2294,6 @@ fill: black;
         flex-direction: column; /* الروابط تحت بعض عشان المساحة */
         align-items: center;
         gap: 30px;
-        padding-top: 40px;
     }
 
     .contact .c {
@@ -2314,8 +2315,9 @@ fill: black;
         -webkit-text-stroke: 2px #000000;
     }
     .logoo{
-        position: absolute;
-        top: 0;
+        position: relative;
+        top: 20px;
+        right: 5px;
         width: 150px;
     }
 
