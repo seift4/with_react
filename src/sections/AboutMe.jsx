@@ -24,10 +24,10 @@ const AboutMe = () => {
 
     return (
         <section className="seif-section" ref={sectionRef}>
-            <div className="content" id="about">
-                <div className="coder sec3">
+            <div className="content3" id="about">
+                <div className="coder3">
                     <h1 className="reveal">About Me</h1>
-                    <ul className="reveal">
+                    <ul className="ul3 reveal">
                         <li>Name: Seif Tarek</li>
                         <li>20 years old.</li>
                         <li>Egyptian nationality.</li>

@@ -66,10 +66,10 @@ const About = () => {
 
   return (
     <section className="about-section" ref={sectionRef}>
-        <div className="content">
-            <div className="coder s1">
+        <div className="content1">
+            <div className="coder1">
                 <h1 className="reveal">Creative Coder</h1>
-                <ul className="ul reveal">
+                <ul className="ul1 reveal">
                     <li>I’m a creative coder driven by a deep passion for programming, especially in the world of web development.</li>
                     <li>I enjoy turning ideas into interactive and visually engaging digital experiences.</li>
                     <li>For me, coding is not just about functionality—it’s about creativity, problem-solving, and building something meaningful.</li>
@@ -84,8 +84,6 @@ const About = () => {
                 src="/3D/sci_-_fi_computer_game_ready.glb" 
                 alt="A 3D model" 
                 auto-rotate 
-                camera-controls /* ضفت دي عشان المستخدم يقدر يلفه بنفسه */
-                enable-zoom={false} /* عشان ميبوظش السكرول في الموبايل */
                 environment-image="neutral" 
                 exposure="1" 
                 ar 

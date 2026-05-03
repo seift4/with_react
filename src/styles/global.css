@@ -788,9 +788,6 @@ body{
     text-align: center;
     margin: 100vh auto 0 auto; 
     border-radius: 1.5625rem; /* 25px */
-    position: sticky; 
-    top: 4vh; 
-    z-index: 100; 
     background-color: #050505;
     padding: 80px 0;
     display: flex;
@@ -798,271 +795,164 @@ body{
     overflow: hidden;
 }
 
-/* توزيع المحتوى (Text & Model) */
-.about-section .content {
+/* المتغيرات الأساسية */
+:root {
+    --primary-color: #e1ff8e;
+    --bg-dark: #0a0a0a;
+    --text-dim: #a0a0a0;
+}
+
+.about-section {
+    background-color: var(--bg-dark);
+    color: white;
+    padding: 100px 5%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+     position: sticky; 
+    top: 4vh; 
+    z-index: 100; 
+   
+}
+
+/* تنسيق المحتوى الأساسي */
+.content1 {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
     align-items: center;
+    justify-content: space-between;
+    width: 100%;
     max-width: 1300px;
     margin: 0 auto;
-    width: 100%;
+    gap: 50px;
+    
 }
 
-.coder.s1 {
-    position: relative;
-    right: 100px;
+/* الجزء الخاص بالكلام */
+.coder1 {
     flex: 1;
-    min-width: 400px;
-    padding: 0 40px;
+    min-width: 350px;
 }
 
+.coder1 h1 {
+    font-size: clamp(3rem, 8vw, 4.5rem); /* حجم خط متغير حسب الشاشة */
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 0.9;
+    margin-right: 70px;
+    position: relative;
+    right: 15px;
+    margin-bottom: 30px;
+    color: var(--primary-color);
+    letter-spacing: -2px;
+}
 
-
-.ul {
+.ul1 {
+    text-align: start;
+    gap: 30px;
     list-style: none;
     padding: 0;
+    max-width: 500px;
 }
 
-.ul li {
+.ul1 li {
     font-size: 1.1rem;
-    color: #ccc;
-    line-height: 1.8;
+    c
+    line-height: 1.5rem;
     margin-bottom: 20px;
     padding-left: 20px;
     border-left: 2px solid #e1ff8e; /* خط فسفوري رفيع بجانب الكلام */
     transition: 0.3s;
 }
 
-.ul li:hover {
+.ul1 li:hover {
     color: #e1ff8e;
     transform: translateX(10px);
 }
 
+
 /* تنسيق الـ 3D Model */
 .parallax-media {
     flex: 1;
-    filter: drop-shadow(0 0 50px rgba(225, 255, 142, 0.15));
-    transition: 0.5s ease;
-    position: relative;
-    left: 120px;
+    filter: drop-shadow(0 0 30px rgba(225, 255, 142, 0.2)); /* وهج خفيف */
 }
-
 /* شريط المهارات (Marquee) */
 .skills-marquee {
+    width: 100%;
     position: relative;
     bottom: 40px;
-    width: 90%;
-    overflow: hidden;
-    background: rgba(225, 255, 142, 0.03); /* خلفية خفيفة جداً */
-    padding: 40px 0;
-    margin-top: 50px;
+    padding: 60px 0;
+    background: rgba(255, 255, 255, 0.03);
     border-top: 1px solid rgba(225, 255, 142, 0.1);
     border-bottom: 1px solid rgba(225, 255, 142, 0.1);
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .marquee-track0 {
-        width: 90%;
     display: flex;
-    align-items: center;
-    gap: 60px; /* المسافة بين المهارات */
+    gap: 80px;
+    animation: scroll 90s linear infinite;
+    width: max-content;
+}
+
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
 }
 
 .skill-item {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px;
-    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    cursor: pointer;
-    min-width: 100px;
+    justify-content: center;
+    transition: all 0.4s ease;
+    filter: grayscale(1) opacity(0.5); /* شكل هادي في العادي */
+}
+
+.skill-item:hover {
+    filter: grayscale(0) opacity(1);
+    transform: translateY(-10px) scale(1.1);
 }
 
 .skill-item i {
     font-size: 3rem;
-    color: #555; /* اللون الأساسي باهت */
-    transition: 0.3s;
+    margin-bottom: 15px;
+    color: var(--item-color, var(--primary-color)); /* بيستخدم لون المهارة أو اللون الموحد */
+    text-shadow: 0 0 15px var(--item-color);
 }
 
 .skill-item p {
-    color: #777;
-    font-weight: 600;
-    letter-spacing: 1px;
+    font-family: 'Courier New', Courier, monospace; /* خط يشبه الكود */
+    font-weight: bold;
     font-size: 0.9rem;
-    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
-/* السحر هنا: الألوان اللي أنت عرفتها في الـ JS */
-.skill-item:hover i {
-    color: var(--item-color);
-    transform: scale(1.2) rotate(5deg);
-    filter: drop-shadow(0 0 15px var(--item-color));
+/* رتوش الـ Reveal Animation */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.17, 0.67, 0.83, 0.67);
 }
 
-.skill-item:hover p {
-    color: #fff;
-    text-shadow: 0 0 5px var(--item-color);
+.reveal.active { /* ضيف الكلاس ده بالـ JavaScript لما توصل للسكشن */
+    opacity: 1;
+    transform: translateY(0);
 }
 
-/* Responsive */
+/* الموبايل */
 @media (max-width: 768px) {
-    .about-section .content {
-        flex-direction: column;
+    .content1 {
+        flex-direction: column-reverse; /* الـ 3D يبقى فوق في الموبايل */
         text-align: center;
     }
-    .u1 li {
-        text-align: left;
+    .ul1 li {
+        padding-left: 0;
     }
-    .parallax-media {
-        width: 100% !important;
-        height: 40vh !important;
-    }
-}
-/* تعديل في الكود الأساسي */
-.coder.s1 {
-    position: relative;
-    right: 0; /* رجعه للصفر هنا ونتحكم فيه بالـ padding */
-    flex: 1;
-    min-width: 400px;
-    padding: 0 40px;
-}
-
-.coder.s1 h1 {
-    /* ... أكوادك ... */
-    width: 100%; /* بدل 695px الثابتة */
-    max-width: 700px;
-    right: 0; 
-}
-
-.parallax-media {
-    flex: 1;
-    position: relative;
-    left: 0; /* رجعه للصفر هنا */
-}
-/* للشاشات المتوسطة (Tablets) */
-/* 1. تعديل الـ h1 الأساسي */
-.coder.s1 h1 {
-    font-size: clamp(2.5rem, 6vw, 4.5rem);
-    color: #e1ff8e;
-    font-weight: 900;
-    margin-bottom: 55px;
-    text-transform: uppercase;
-    text-shadow: 0 0 20px rgba(225, 255, 142, 0.3);
-    width: 100%; /* غيرتها من 695px */
-    max-width: 695px; /* عشان ميزيدش في الديسكتوب */
-    position: relative;
-    right: 0; /* لغيت الـ 20px عشان الموبايل */
-}
-/* --- About Section Core --- */
-.about-section {
-    min-height: 92vh; /* أفضل من height الثابتة */
-    width: 98%;
-    margin: 100vh auto 0 auto;
-    border-radius: 1.5625rem;
-    position: sticky;
-    top: 4vh;
-    z-index: 100;
-    background-color: #050505;
-    padding: 60px 0; /* تقليل البادنج قليلاً للموبايل */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    overflow: hidden;
-}
-
-.about-section .content {
-    display: flex;
-    flex-direction: row; /* الأساس ديسكتوب */
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    max-width: 1300px;
-    margin: 0 auto;
-    width: 100%;
-    gap: 20px;
-}
-
-/* --- Text Area --- */
-.coder.s1 {
-    flex: 1;
-    min-width: 320px; /* تقليلها عشان الموبايلات الصغيرة */
-    padding: 0 40px;
-    text-align: left;
-}
-
-.coder.s1 h1 {
-    font-size: clamp(2.2rem, 6vw, 4.5rem);
-    color: #e1ff8e;
-    font-weight: 900;
-    margin-bottom: 35px;
-    text-transform: uppercase;
-    text-shadow: 0 0 20px rgba(225, 255, 142, 0.2);
-    width: 100%;
-    max-width: 695px;
-}
-
-.ul {
-    list-style: none;
-    padding: 0;
-}
-
-.ul li {
-    font-size: 1.05rem;
-    color: #ccc;
-    line-height: 1.6;
-    margin-bottom: 15px;
-    padding-left: 15px;
-    border-left: 2px solid #e1ff8e;
-    transition: 0.3s ease-out;
-}
-
-.ul li:hover {
-    color: #e1ff8e;
-    transform: translateX(8px);
-}
-
-/* --- 3D Model Styling --- */
-.parallax-media {
-    flex: 1;
-    min-width: 300px;
-    height: 60vh;
-    filter: drop-shadow(0 0 40px rgba(225, 255, 142, 0.1));
-    outline: none;
-}
-
-/* --- Responsive Fixes --- */
-@media (max-width: 992px) {
-    .about-section .content {
-        flex-direction: column; /* تحويل لعمودي في التابلت والموبايل */
-        padding: 20px;
-    }
-    
-    .coder.s1 {
-        padding: 0 20px;
-        order: 2; /* النص يظهر تحت الموديل */
-    }
-
-    .parallax-media {
-        order: 1; /* الموديل يظهر فوق */
-        height: 45vh;
-        width: 100%;
-    }
-
-    .coder.s1 h1 {
-        text-align: center;
-        margin: 0 auto 30px auto;
-    }
-}
-
-@media (max-width: 480px) {
-    .about-section {
-        top: 2vh;
-        padding: 40px 0;
-    }
-    
-    .ul li {
-        font-size: 0.95rem;
-        text-align: left; /* الحفاظ على الليفت في النقاط بيدي شكل أنضف */
+    .ul1 li::before {
+        display: none;
     }
 }
 
@@ -1088,42 +978,191 @@ body{
     align-items: center;
 }
 
-.work-section .content {
+.content2 {
+    max-width: 1300px;
+    margin: 0 auto;
     display: grid;
-    grid-template-columns: 1fr 1fr; /* تقسيم الشاشة لنصين */
-    gap: 50px;
+    grid-template-columns: 1.2fr 0.8fr; /* تقسيم مساحة الكلام والموديل */
+    gap: 40px;
     align-items: center;
-    width: 100%;
 }
 
-/* الجزء الخاص بالنصوص */
-.coder.sec2 {
-    z-index: 2;
-}
-
-.coder h1 {
-    font-size: clamp(2.5rem, 5vw, 4rem);
+/* تنسيق النصوص */
+.coder2 h1 {
+    font-size: clamp(2.5rem, 6vw, 4.4rem);
+    font-weight: 800;
     color: #e1ff8e;
-    margin-bottom: 90px;
+    text-transform: uppercase;
+    margin-bottom: 35px;
+    line-height: 1;
+    /* تأثير Stroke خفيف لو حابب */
+    -webkit-text-stroke: 1px rgba(225, 255, 142, 0.3);
+}
+
+.ul2 {
+    list-style: none;
+    padding: 0;
+    width: 70%;
+}
+
+.ul2 li {
+    text-align: start;
+    font-size: 1.1rem;
+    color: #d1d1d1;
+    margin-bottom: 18px;
+    line-height: 1.7;
+    max-width: 600px;
+    padding-left: 20px;
+    border-left: 2px solid #e1ff8e; /* خط جانبي بدل الـ bullet التقليدي */
+}
+
+/* الـ 3D Model */
+.parallax-media2 {
+    width: 100%;
+    height: 500px;
+    background: radial-gradient(circle, rgba(225, 255, 142, 0.05) 0%, transparent 70%);
+    border-radius: 50%; /* بيعمل هالة دائرية ورا الموديل */
+}
+
+/* معرض الصور (Marquee) */
+.imgs.gallary {
+    position: relative;
+    bottom: 200px;
+    grid-column: 1 / -1; /* ياخد العرض بالكامل تحت الكلام والموديل */
+    overflow: hidden;
+    padding: 20px 0;
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent); /* تلاشي من الجوانب */
+}
+
+.marquee-track1 {
+    display: flex;
+    gap: 30px;
+    width: max-content;
+    animation: slideRight 40s linear infinite;
+}
+
+@keyframes slideRight {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* كارت الصورة */
+.imag {
+    width: 350px;
+    height: 220px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(225, 255, 142, 0.2);
+    position: relative;
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    cursor: pointer;
+}
+
+.imag img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(80%) contrast(1.2); /* لوك سينمائي */
+    transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+.imag:hover {
+    border-color: #e1ff8e;
+    box-shadow: 0 10px 30px rgba(225, 255, 142, 0.15);
+    transform: scale(1.05) translateY(-5px);
+}
+
+.imag:hover img {
+    filter: grayscale(0%) contrast(1);
+    transform: scale(1.1);
+}
+
+/* تعديلات الموبايل */
+@media (max-width: 992px) {
+    .content2 {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .ul2 li {
+        border-left: none;
+        border-bottom: 1px solid rgba(225, 255, 142, 0.1);
+        padding: 0 0 15px 0;
+    }
+    .imag {
+        width: 280px;
+        height: 180px;
+    }
+}
+
+
+/*///////////////////////////////////////////////////////////// */
+
+
+
+
+/* السكشن الأساسي */
+.seif-section {
+    background-color: #0a0a0a;
+    padding: 100px 5%;
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+        position: relative;
+    z-index: 10000;
+}
+
+.content3 {
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+    flex-wrap: wrap;
+}
+
+/* جزء البيانات الشخصية */
+.coder3 {
+    flex: 1;
+    min-width: 320px;
+}
+
+.coder3 h1 {
+    font-size: 4rem;
     font-weight: 900;
+    color: #e1ff8e;
+    margin-bottom: 30px;
+    position: relative;
+    right: 180px;
     text-transform: uppercase;
     letter-spacing: -1px;
 }
 
 .ul3 {
-    margin-left: 150px;
+    position: relative;
+    left: 40px;
     list-style: none;
     padding: 0;
-    width: 70%;
-    position: relative;
-    bottom: 30px;
 }
+
 
 .ul3 li {
     font-size: 1.1rem;
     color: #ccc;
-    line-height: 1.8;
-    margin-bottom: 20px;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    justify-content: space-between; /* بيخلي الكلام شكله منظم زي الـ Table */
+    transition: all 0.3s ease;
+}
+
+.ul3 li:hover {
+    color: #e1ff8e;
+    padding-left: 10px;
+    border-bottom-color: #e1ff8e;
+}
+.ul3 li {
     padding-left: 20px;
     border-left: 2px solid #e1ff8e; /* خط فسفوري رفيع بجانب الكلام */
     transition: 0.3s;
@@ -1134,139 +1173,20 @@ body{
     transform: translateX(10px);
 }
 
-/* تنسيق الـ 3D Model */
-#Model {
-    width: 100%;
-    height: 500px;
-    outline: none;
-    position: relative;
-    right: 80px;
-    cursor: grab;
-    /* إضافة توهج خلف الموديل */
-    filter: drop-shadow(0 0 30px rgba(225, 255, 142, 0.1));
-}
 
-/* تنسيق جاليري الصور (Marquee) */
-.imgs.gallary {
-    grid-column: span 2; /* الجاليري ياخد عرض السكشن كله تحت */
-    width: 70%;
-    overflow: hidden;
-    padding-top: 50px;
-    position: relative;
-    bottom: 200px;
-}
-
-.marquee-track1 {
-    display: flex;
-    gap: 20px;
-}
-
-.imag {
-    flex: 0 0 300px; /* عرض الصورة */
-    height: 200px;
-    border-radius: 15px;
-    overflow: hidden;
-    border: 1px solid rgba(225, 255, 142, 0.2);
-    filter: grayscale(100%); /* الصور تبدأ أبيض وأسود */
-    transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.imag img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.imag:hover {
-    filter: grayscale(0%); /* تلون عند الـ hover */
-    transform: scale(1.05) translateY(-10px);
-    border-color: #e1ff8e;
-    box-shadow: 0 10px 30px rgba(225, 255, 142, 0.2);
-}
-
-
-/*///////////////////////////////////////////////////////////// */
-
-
-.seif-section {
-        
-    /* خلفية بيضاء شفافة جداً */
-    background-color: rgba(1, 1, 1, 0.729); 
-    
-    /* أهم سطر: بيعمل بلور لأي حاجة "ورا" الناف بار */
-    backdrop-filter: blur(12px); 
-    -webkit-backdrop-filter: blur(10px); /* للدعم في متصفح Safari */
-    
-    /* إضافة حدود بسيطة عشان تبرز شكل الزجاج */
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    width: 100%;
-    height: 70vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 100px 5%;
-    overflow: hidden;
-    position: relative;
-    z-index: 10000;
-}
-
-.seif-section .content {
-    display: grid;
-    grid-template-columns: 1.2fr 0.8fr; /* مساحة أكبر للكلام */
-    gap: 60px;
-    align-items: center;
-    width: 100%;
-    max-width: 1200px;
-}
-
-/* تنسيق النصوص */
-.coder.sec3 h1 {
-    position: relative;
-    right: 400PX;
-    bottom: 30PX;
-    font-size: 3.5rem;
-    color: #e1ff8e;
-    margin-bottom: 60px;
-    font-weight: 900;
-    text-transform: uppercase;
-}
-
-.coder.sec3 ul {
-    position: relative;
-    right: 199px;
-    list-style: none;
-    padding: 0;
-}
-
-.coder.sec3 ul li {
-    font-size: 1.1rem;
-    color: #e0e0e0;
-    margin-bottom: 15px;
-    padding: 12px 20px;
-    background: rgba(225, 255, 142, 0.03); /* خلفية شفافة جداً */
-    border-radius: 8px;
-    border-left: 3px solid #e1ff8e;
-    transition: 0.3s ease;
-}
-
-.coder.sec3 ul li:hover {
-    background: rgba(225, 255, 142, 0.1);
-    transform: translateX(10px);
-}
-
-/* كارت الصورة (The Flip Card) */
+/* تأثير الـ Flip Card */
 .seif {
     width: 350px;
     height: 450px;
-    perspective: 1000px; /* ضروري لتأثير الـ 3D */
+    perspective: 1000px; /* ضروري عشان الـ 3D يظهر */
 }
 
 .card-inner {
-    position: relative;
     width: 100%;
     height: 100%;
-    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
     transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
     cursor: pointer;
 }
 
@@ -1278,10 +1198,10 @@ body{
     position: absolute;
     width: 100%;
     height: 100%;
-    backface-visibility: hidden; /* يخفي الظهر لما يكون الوش ظاهر */
+    backface-visibility: hidden; /* بيخفي الظهر لما الوش يكون باين والعكس */
     border-radius: 20px;
-    border: 2px solid rgba(225, 255, 142, 0.3);
     overflow: hidden;
+    border: 2px solid rgba(225, 255, 142, 0.1);
 }
 
 .front {
@@ -1292,135 +1212,63 @@ body{
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: grayscale(30%); /* لمسة سينمائية */
+    filter: grayscale(100%);
+    transition: 0.5s;
+}
+
+.seif:hover .front img {
+    filter: grayscale(0%);
 }
 
 .back {
-    background: #e1ff8e; /* الظهر لونه فسفوري */
+    background: #e1ff8e; /* لونك المفضل في الخلفية */
     transform: rotateY(180deg);
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
     padding: 20px;
-    box-shadow: 0 0 30px rgba(225, 255, 142, 0.4);
 }
 
 .back h2 {
     color: #000;
     font-size: 2rem;
-    text-align: center;
     font-weight: 900;
-    transform: translateZ(50px); /* يخلي النص كأنه بارز */
+    transform: rotate(-10deg); /* حركة كرييتف للاسم في الظهر */
+    border: 3px solid #000;
+    padding: 10px;
 }
 
-/* إضافة توهج خلف الكارت */
+/* إضافة توهج (Glow) حول الكارت */
 .seif::before {
-    content: "";
+    content: '';
     position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 100%;
     height: 100%;
     background: #e1ff8e;
-    filter: blur(100px);
-    opacity: 0.1;
+    filter: blur(80px);
+    opacity: 0.05;
     z-index: -1;
 }
 
-/* Responsive */
-@media (max-width: 992px) {
-    .seif-section .content {
-        grid-template-columns: 1fr;
+/* الموبايل */
+@media (max-width: 768px) {
+    .content3 {
+        flex-direction: column;
         text-align: center;
     }
     .seif {
-        margin: 0 auto;
+        width: 300px;
+        height: 400px;
     }
-    .coder.sec3 ul li {
-        text-align: left;
-    }
-}
-/* الحاوية الرئيسية */
-.seif {
-    position: relative;
-    bottom: 30px;
-        left: 50px;
-        z-index: 2400; 
-
-    margin-top: 1.975rem; /* 30px */
-    aspect-ratio: 1 / 1; 
-    perspective: 62.5rem; /* 1000px */
-    height: 72vh;
-    width: 450px;
-    
-}
-
-/* الشاشات الصغيرة (Mobile) */
-@media (max-width: 768px) {
-    .seif {
-        width: 80%; /* تكبير الكارت في الموبايل عشان يكون واضح */
-        margin-left: auto;
-        margin-right: auto;
+    .ul3 li {
+        justify-content: center;
+        font-size: 0.95rem;
     }
 }
-
-/* الحاوية الداخلية */
-.card-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1); /* تنعيم الحركة */
-    transform-style: preserve-3d;
-}
-
-.seif:hover .card-inner {
-    transform: rotateY(180deg);
-}
-
-/* الستايل المشترك */
-.front, .back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    border-radius: 0.625rem; /* 10px */
-    overflow: hidden;
-}
-
-.front {
-    background-color: #000000;
-}
-
-.front img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* الوجه الخلفي مع تأثير الـ Glow المتحرك */
-.back {
-    background: #000000;
-    transform: rotateY(180deg);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 1.25rem; /* 20px */
-    box-sizing: border-box;
-}
-
-/* تنسيق النص الخلفي */
-.back h2 {
-    color: #e1ff8e;
-    margin: 0;
-    font-size: 1.5rem; 
-    text-transform: uppercase;
-    letter-spacing: 0.0625rem; /* 1px */
-    text-shadow: 0.0625rem 0.0625rem 0.125rem white;
-}
-
-
-
 
 
 /* ////////////////////////////////////////////// */
@@ -1446,6 +1294,10 @@ body{
 }
 
 .works h1{
+        font-weight: 900;
+    color: #e1ff8e;
+    text-transform: uppercase;
+    letter-spacing: -1px;
     text-transform: uppercase;
     text-align: start;
     margin-left: 190px;
@@ -1461,14 +1313,6 @@ body{
 
 }
 .row{
-    /* خلفية بيضاء شفافة جداً */
-    background-color: rgba(255, 255, 255, 0.05); 
-    
-    /* أهم سطر: بيعمل بلور لأي حاجة "ورا" الناف بار */
-    backdrop-filter: blur(12px); 
-    -webkit-backdrop-filter: blur(10px); /* للدعم في متصفح Safari */
-    
-    /* إضافة حدود بسيطة عشان تبرز شكل الزجاج */
     border: 1px solid rgba(255, 255, 255, 0.1);
 height: 50px;    display: flex;
     flex-direction: column;
@@ -1495,9 +1339,6 @@ height: 50px;    display: flex;
     font-weight: 0;
    font-size: 50px;
  
-}
-.r5 {
-    border-bottom:solid 1px rgb(150, 143, 143);
 }
 .row .title-area svg{
     font-weight: 00;

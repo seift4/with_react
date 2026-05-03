@@ -99,10 +99,10 @@ const WebExperiences = () => {
 
     return (
         <section className="work-section" ref={sectionRef}>
-            <div className="content">
-                <div className="coder sec2">
+            <div className="content2">
+                <div className="coder2">
                     <h1 className="reveal">Web Experiences</h1>
-                    <ul className="ul3 reveal">
+                    <ul className="ul2 reveal">
                         <li>I’m currently working with Mavero, where I developed and built their official website.</li>
                         <li>I’ve also worked on multiple web projects, gaining hands-on experience in creating responsive, modern, and user-focused websites.</li>
                         <li>Through these experiences, I’ve improved my ability to turn ideas into real, functional products while maintaining clean code and strong visual design.</li>
