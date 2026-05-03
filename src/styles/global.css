@@ -944,7 +944,25 @@ body{
     position: relative;
     left: 0; /* رجعه للصفر هنا */
 }
+/* للشاشات المتوسطة (Tablets) */
+@media (max-width: 450px) {
+    .coder.s1 ul{
+        width: 85%;
 
+    }
+    .coder.s1 ul li{
+        font-size: 16px;
+    }
+    .coder.s1 h1{
+        width: 100%;
+        font-size: 37px;
+        text-align: center;
+        position: relative;
+        right: 24px;
+
+    }
+
+}
 /*/////////////////////////////////////////////////////////// */
 .work-section {
 
@@ -1063,7 +1081,66 @@ body{
     box-shadow: 0 10px 30px rgba(225, 255, 142, 0.2);
 }
 
+/* Responsive التنسيق للموبايل */
+@media (max-width: 992px) {
+    .work-section .content {
+        grid-template-columns: 1fr; /* النص والموديل تحت بعض */
+    }
+    
+    #Model {
+        height: 350px;
+        order: -1; /* الموديل يظهر الأول في الموبايل */
+    }
+}
+.ul3 {
+    margin-left: 10%; /* نسبة مئوية بدل 150px */
+    list-style: none;
+    padding: 0;
+    width: 80%; /* تكبير العرض قليلاً */
+    position: relative;
+}
 
+.imgs.gallary {
+    grid-column: span 2;
+    width: 100%; /* الجاليري يملأ العرض المتاح */
+    overflow: hidden;
+    padding-top: 50px;
+    margin-top: 50px; /* بدل bottom: 200px عشان ميغطيش على اللي فوقه */
+}
+/* للشاشات المتوسطة (Tablets) */
+@media (max-width: 450px) {
+    .coder.sec2{
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        right: 40px;
+    }
+    .coder.sec2 ul{
+        position: relative;
+        right: 30px;
+        width: 85%;
+
+    }
+    .coder.sec2 ul li{
+        font-size: 16px;
+    }
+    .coder.sec2 h1{
+        width: 100%;
+        font-size: 36px;
+        text-align: center;
+        position: relative;
+        left: 8px;
+    }
+    .imgs.gallary {
+    grid-column: span 2;
+    width: 100%; /* الجاليري يملأ العرض المتاح */
+    overflow: hidden;
+    padding-top: 50px;
+    margin-top: 70px; /* بدل bottom: 200px عشان ميغطيش على اللي فوقه */
+}
+
+}
 /*///////////////////////////////////////////////////////////// */
 
 
@@ -1298,6 +1375,60 @@ body{
     text-shadow: 0.0625rem 0.0625rem 0.125rem white;
 }
 
+
+
+
+@media (max-width: 450px) {
+    .seif-section{
+        height: 145vh;
+    }
+    .coder.sec3{
+        gap: 0;
+        margin-top: 190px;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        right: 40px;
+    }
+    .coder.sec3 ul{
+        position: relative;
+        left: 50px;
+        width: 85%;
+        bottom: 40px;
+
+    }
+    .coder.sec3 ul li{
+        font-size: 16px;
+    }
+    .coder.sec3 h1{
+        width: 100%;
+        font-size: 36px;
+        text-align: center;
+        position: relative;
+        right: 48px;
+    }
+    /* الحاوية الرئيسية */
+.seif {
+    position: relative;
+    bottom: 80px;
+    left: -20PX;
+    z-index: 2400; 
+
+    margin-top: 1.975rem; /* 30px */
+    aspect-ratio: 1 / 1; 
+    perspective: 62.5rem; /* 1000px */
+    height: 70vh;
+    width: 400px;
+    
+}
+
+.seif:hover .card-inner {
+    transform: rotateY(0deg);
+}
+
+
+}
 
 
 
@@ -2011,6 +2142,9 @@ fill: black;
         position: relative;
         right: 5px;
         width: 150px;
+    }
+    *{
+        overflow-x: hidden;
     }
 
 
