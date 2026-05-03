@@ -817,17 +817,7 @@ body{
     padding: 0 40px;
 }
 
-.coder.s1 h1 {
-    font-size: clamp(2.5rem, 6vw, 4.5rem);
-    color: #e1ff8e; /* لونك المفضل */
-    font-weight: 900;
-    margin-bottom: 55px;
-    text-transform: uppercase;
-    text-shadow: 0 0 20px rgba(225, 255, 142, 0.3);
-    width: 695px;
-    position: relative;
-    right: 20px;
-}
+
 
 .ul {
     list-style: none;
@@ -950,27 +940,57 @@ body{
     left: 0; /* رجعه للصفر هنا */
 }
 /* للشاشات المتوسطة (Tablets) */
+/* 1. تعديل الـ h1 الأساسي */
+.coder.s1 h1 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    color: #e1ff8e;
+    font-weight: 900;
+    margin-bottom: 55px;
+    text-transform: uppercase;
+    text-shadow: 0 0 20px rgba(225, 255, 142, 0.3);
+    width: 100%; /* غيرتها من 695px */
+    max-width: 695px; /* عشان ميزيدش في الديسكتوب */
+    position: relative;
+    right: 0; /* لغيت الـ 20px عشان الموبايل */
+}
+
+/* 2. تعديل الـ Media Query للموبايل (450px) */
 @media (max-width: 450px) {
-    .about-section{
+    .about-section {
         width: 100%;
-        overflow-x: hidden;
+        /* ممنوع تحط overflow-x: hidden هنا لو الـ sticky جوه العنصر ده */
+        /* لو الـ about-section هي نفسها الـ sticky، الـ overflow-x: hidden اللي انت كاتبه هو اللي بيبوظها */
+        overflow: visible; 
     }
-    .coder.s1 ul{
-        width: 85%;
 
-    }
-    .coder.s1 ul li{
-        font-size: 16px;
-    }
-    .coder.s1 h1{
+    .coder.s1 {
+        min-width: unset; /* عشان الـ 400px كتير على الموبايل */
         width: 100%;
-        font-size: 37px;
+        padding: 0 20px;
+        right: 0; /* تأكيد الإلغاء */
+    }
+
+    .coder.s1 h1 {
+        width: 100%;
+        font-size: 28px; /* صغرتها شوية عشان تناسب الموبايل */
         text-align: center;
-        position: relative;
-        right: 24px;
-
+        right: 0; /* لغيت الـ 24px اللي كانت بتحدف الكلام يمين */
+        margin: 0 auto 30px auto;
     }
 
+    .coder.s1 ul {
+        width: 100%;
+        padding: 0 10px;
+    }
+
+    .parallax-media {
+        left: 0; /* لغيت الـ 120px اللي كانت بتطرد الموديل بره الشاشة */
+        width: 100%;
+    }
+    
+    .skills-marquee {
+        width: 100%; /* بدل 90% عشان ميسيبش فراغ يخليك تشك في السكرول */
+    }
 }
 /*/////////////////////////////////////////////////////////// */
 .work-section {
@@ -1090,78 +1110,56 @@ body{
     box-shadow: 0 10px 30px rgba(225, 255, 142, 0.2);
 }
 
-/* Responsive التنسيق للموبايل */
-@media (max-width: 992px) {
-    .work-section .content {
-        grid-template-columns: 1fr; /* النص والموديل تحت بعض */
-    }
-    
-    #Model {
-        height: 350px;
-        order: -1; /* الموديل يظهر الأول في الموبايل */
-    }
-}
-.ul3 {
-    margin-left: 10%; /* نسبة مئوية بدل 150px */
-    list-style: none;
-    padding: 0;
-    width: 80%; /* تكبير العرض قليلاً */
-    position: relative;
-}
-
-.imgs.gallary {
-    grid-column: span 2;
-    width: 100%; /* الجاليري يملأ العرض المتاح */
-    overflow: hidden;
-    padding-top: 50px;
-    margin-top: 50px; /* بدل bottom: 200px عشان ميغطيش على اللي فوقه */
-}
-/* للشاشات المتوسطة (Tablets) */
 @media (max-width: 450px) {
-    .work-section{
+    .work-section {
         width: 100%;
-        overflow-x: hidden;
+        /* أزلنا overflow-x: hidden لضمان عمل الـ sticky */
+        padding: 60px 20px; /* تقليل البادينج للموبايل */
+        display: block; /* تغيير من flex لـ block لسهولة التحكم */
     }
-    .coder.sec2{
+
+    .coder.sec2 {
         text-align: center;
-        justify-content: center;
+        width: 100%;
+        right: 0; /* إلغاء الإزاحة */
+        margin: 0;
+        display: flex;
+        flex-direction: column;
         align-items: center;
-        position: relative;
-        right: 40px;
     }
-    .coder.sec2 ul{
-        position: relative;
-        right: 30px;
-        width: 85%;
 
-    }
-    .coder.sec2 ul li{
-        font-size: 16px;
-    }
-    .coder.sec2 h1{
+    .coder.sec2 h1 {
         width: 100%;
-        font-size: 36px;
+        font-size: 28px; /* حجم أنسب للموبايل */
         text-align: center;
-        position: relative;
-        left: 8px;
+        left: 0; /* إلغاء الإزاحة */
+        margin-bottom: 40px;
     }
-    .imgs.gallary {
-    grid-column: span 2;
-    width: 100%; /* الجاليري يملأ العرض المتاح */
-    overflow: hidden;
-    padding-top: 50px;
-    margin-top: 70px; /* بدل bottom: 200px عشان ميغطيش على اللي فوقه */
-}
-#Model{
-    display: none;
-}
-.parallax-media{
-    display: none;
-}
-.work-section{
-    overflow-x: hidden;
-}
 
+    .ul3 {
+        margin-left: 0; /* إلغاء الـ 150px الكارثية */
+        width: 100%;
+        right: 0; /* إلغاء الإزاحة */
+        padding: 0 15px;
+    }
+
+    .ul3 li {
+        font-size: 15px;
+        text-align: left; /* الحفاظ على الخط الجانبي في مكانه */
+    }
+
+    .imgs.gallary {
+        width: 100vw; /* جعل الجاليري بعرض الشاشة الفعلي */
+        position: relative;
+        left: -20px; /* تعويض الـ padding الخاص بالأب ليكون الجاليري full width */
+        bottom: 0; /* إلغاء الـ bottom القديم */
+        margin-top: 40px;
+    }
+
+    /* إلغاء العناصر الثقيلة في الموبايل كما فعلت أنت */
+    #Model, .parallax-media {
+        display: none !important;
+    }
 }
 /*///////////////////////////////////////////////////////////// */
 
