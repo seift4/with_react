@@ -986,6 +986,11 @@ body{
         margin-top: 20px;
         font-size: 2.2rem;
     }
+    .coder1 ul{
+        position: relative;
+        right: 60px;
+        width: 70%;
+    }
     
     .skill-item i {
         font-size: 2rem;
@@ -996,7 +1001,33 @@ body{
     }
 }
 
+@media (max-width: 480px) {
+    /* 1. ضبط الحاوية الكبرى */
+    .about-section {
+        overflow-x: hidden; /* هنا مسموح لأننا سنصلح الـ sticky بالأسفل */
+        width: 100%;
+        padding: 40px 15px; /* تقليل المسافات الجانبية */
+    }
 
+    /* 2. إصلاح الـ h1 */
+    .coder1 h1 {
+        right: 0 !important; /* إلغاء الإزاحة التي تسبب الخروج عن الشاشة */
+        margin-right: 0 !important;
+        width: 100%;
+        text-align: start;
+        font-size: 2rem; /* تأكيد الحجم المناسب */
+    }
+
+    /* 3. إصلاح عرض النصوص */
+    .coder1 {
+        min-width: 100% !important; /* منع العنصر من تجاوز عرض الشاشة */
+        flex: none;
+    }
+
+    /* 4. ضمان عمل الـ Sticky */
+    /* إذا لاحظت أن الـ sticky توقف، تأكد أن الأب المباشر لـ about-section 
+       لا يملك overflow: hidden. */
+}
 /*/////////////////////////////////////////////////////////// */
 .work-section {
 
@@ -1163,7 +1194,47 @@ body{
         margin-top: 20px;
     }
 }
+@media (max-width: 768px) {
+    /* 1. السكشن الرئيسي */
+    .work-section {
+        overflow-x: hidden; /* ضروري هنا عشان ندفن أي لغم يظهر من الماركي */
+        width: 100%;
+        padding: 60px 15px;
+    }
 
+    /* 2. حاوية الصور (الجاليري) */
+    .imgs.gallary {
+        position: static; /* الغي الـ bottom والـ position عشان ميبوظش الحسابات */
+        margin-top: 20px;
+        width: 100vw; /* خليه ياخد عرض الشاشة بالظبط */
+        left: -15px; /* تعويض الـ padding بتاع الـ section */
+        mask-image: none; /* الغي الـ mask في الموبايل لأنه بيعمل مشاكل Render */
+        -webkit-mask-image: none;
+    }
+
+    /* 3. التراك (السر هنا) */
+    .marquee-track1 {
+        /* تأكد إن مفيش أي margin-right أو padding يمين غريب */
+        display: flex;
+        gap: 15px; /* صغر الـ gap عشان المساحة */
+    }
+
+    /* 4. كارت الصورة */
+    .imag {
+        width: 220px; /* صغر العرض شوية للموبايل */
+        height: 150px;
+        flex-shrink: 0; /* امنع الصور إنها تصغر عن حجمها */
+    }
+    * {
+    box-sizing: border-box;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+}
 /*///////////////////////////////////////////////////////////// */
 
 
@@ -1361,6 +1432,9 @@ body{
         width: 100%;
         height: 490px; /* تقليل الطول في الموبايلات الصغيرة */
     }
+    .coder3 ul{
+        text-align: start;
+    }
     
     .back h2 {
         font-size: 1.5rem;
@@ -1370,7 +1444,31 @@ body{
         padding: 50px 15px;
     }
 }
+/* تعديل بسيط على السكشن */
+.seif-section {
+    background-color: #0a0a0a;
+    padding: 80px 5%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden; /* تأكيد القفل العرضي فقط */
+    position: relative;
+}
 
+/* تعديل الكارت في الموبايل */
+@media (max-width: 480px) {
+    .seif {
+        width: 90%; /* بلاش 100% عشان نسيب مساحة للـ Shadow أو الـ Blur */
+        margin-left: auto;
+        margin-right: auto;
+        height: 400px; /* طول أنسب للموبايل */
+    }
+
+    .ul3 li:hover {
+        transform: translateX(5px); /* تقليل الحركة في الموبايل عشان الشاشة ضيقة */
+    }
+}
 
 /* ////////////////////////////////////////////// */
 
@@ -1682,8 +1780,7 @@ fill: black;
     margin-top: 6.25rem;
     overflow: hidden;
     width: 80%;
-    background-color: var(--bg-color);
-    padding: 2.5rem 0;
+    padding: 2.5rem 2wem;
     user-select: none;
     overflow-x: auto;
     scrollbar-width: none;
@@ -1694,7 +1791,7 @@ fill: black;
 }
 
 .marquee-track {
-    background-color: var(--bg-color);
+
     display: flex;
     width: max-content;
     animation: scroll 800s linear infinite;
