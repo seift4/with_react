@@ -954,45 +954,6 @@ body{
     right: 0; /* لغيت الـ 20px عشان الموبايل */
 }
 
-/* 2. تعديل الـ Media Query للموبايل (450px) */
-@media (max-width: 450px) {
-    .about-section {
-        width: 100%;
-        /* ممنوع تحط overflow-x: hidden هنا لو الـ sticky جوه العنصر ده */
-        /* لو الـ about-section هي نفسها الـ sticky، الـ overflow-x: hidden اللي انت كاتبه هو اللي بيبوظها */
-        overflow: visible; 
-    }
-
-    .coder.s1 {
-        min-width: unset; /* عشان الـ 400px كتير على الموبايل */
-        width: 100%;
-        padding: 0 20px;
-        right: 0; /* تأكيد الإلغاء */
-    }
-
-    .coder.s1 h1 {
-        width: 100%;
-        font-size: 28px; /* صغرتها شوية عشان تناسب الموبايل */
-        text-align: center;
-        right: 0; /* لغيت الـ 24px اللي كانت بتحدف الكلام يمين */
-        margin: 0 auto 30px auto;
-    }
-
-    .coder.s1 ul {
-        width: 100%;
-        padding: 0 10px;
-    }
-    
-
-    .parallax-media {
-        left: 0; /* لغيت الـ 120px اللي كانت بتطرد الموديل بره الشاشة */
-        width: 100%;
-    }
-    
-    .skills-marquee {
-        width: 100%; /* بدل 90% عشان ميسيبش فراغ يخليك تشك في السكرول */
-    }
-}
 /*/////////////////////////////////////////////////////////// */
 .work-section {
 
@@ -1111,64 +1072,14 @@ body{
     box-shadow: 0 10px 30px rgba(225, 255, 142, 0.2);
 }
 
-@media (max-width: 450px) {
-    .work-section {
-        width: 100%;
-        /* أزلنا overflow-x: hidden لضمان عمل الـ sticky */
-        padding: 60px 20px; /* تقليل البادينج للموبايل */
-        display: block; /* تغيير من flex لـ block لسهولة التحكم */
-    }
 
-    .coder.sec2 {
-        text-align: center;
-        width: 100%;
-        right: 0; /* إلغاء الإزاحة */
-        margin: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .coder.sec2 h1 {
-        width: 100%;
-        font-size: 28px; /* حجم أنسب للموبايل */
-        text-align: center;
-        left: 0; /* إلغاء الإزاحة */
-        margin-bottom: 40px;
-    }
-
-    .ul3 {
-        margin-left: 0; /* إلغاء الـ 150px الكارثية */
-        width: 100%;
-        right: 0; /* إلغاء الإزاحة */
-        padding: 0 15px;
-    }
-
-    .ul3 li {
-        font-size: 15px;
-        text-align: left; /* الحفاظ على الخط الجانبي في مكانه */
-    }
-
-    .imgs.gallary {
-        width: 100vw; /* جعل الجاليري بعرض الشاشة الفعلي */
-        position: relative;
-        left: -20px; /* تعويض الـ padding الخاص بالأب ليكون الجاليري full width */
-        bottom: 0; /* إلغاء الـ bottom القديم */
-        margin-top: 40px;
-    }
-
-    /* إلغاء العناصر الثقيلة في الموبايل كما فعلت أنت */
-    #Model, .parallax-media {
-        display: none !important;
-    }
-}
 /*///////////////////////////////////////////////////////////// */
 
 
 .seif-section {
         
     /* خلفية بيضاء شفافة جداً */
-    background-color: rgba(1, 1, 1, 0.603); 
+    background-color: rgba(1, 1, 1, 0.729); 
     
     /* أهم سطر: بيعمل بلور لأي حاجة "ورا" الناف بار */
     backdrop-filter: blur(12px); 
@@ -1398,64 +1309,6 @@ body{
 
 
 
-
-@media (max-width: 450px) {
-    .seif-section{
-        overflow-x: hidden;
-        height: 145vh;
-        width: 100%;
-    }
-    .coder.sec3{
-        gap: 0;
-        margin-top: 190px;
-        text-align: center;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        right: 40px;
-    }
-    .coder.sec3 ul{
-        position: relative;
-        left: 50px;
-        width: 85%;
-        bottom: 40px;
-
-    }
-    .coder.sec3 ul li{
-        font-size: 16px;
-    }
-    .coder.sec3 h1{
-        width: 100%;
-        font-size: 36px;
-        text-align: center;
-        position: relative;
-        right: 48px;
-    }
-    /* الحاوية الرئيسية */
-.seif {
-    position: relative;
-    bottom: 80px;
-    left: -20PX;
-    z-index: 2400; 
-
-    margin-top: 1.975rem; /* 30px */
-    aspect-ratio: 1 / 1; 
-    perspective: 62.5rem; /* 1000px */
-    height: 70vh;
-    width: 400px;
-    
-}
-
-.seif:hover .card-inner {
-    transform: rotateY(0deg);
-}
-
-
-}
-
-
-
-        
 
 
 /* ////////////////////////////////////////////// */
