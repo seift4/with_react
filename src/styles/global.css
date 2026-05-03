@@ -971,16 +971,22 @@ body{
     }
 
     .coder.s1 h1 {
+        position: relative;
+        right: 70px;
         width: 100%;
         font-size: 28px; /* صغرتها شوية عشان تناسب الموبايل */
         text-align: center;
-        right: 0; /* لغيت الـ 24px اللي كانت بتحدف الكلام يمين */
         margin: 0 auto 30px auto;
     }
 
     .coder.s1 ul {
-        width: 100%;
+        
+        text-align: start;
+        width: 80%;
         padding: 0 10px;
+    }
+    .s1 ul li{
+        font-size: 14px;
     }
 
     .parallax-media {
@@ -1129,31 +1135,36 @@ body{
     }
 
     .coder.sec2 h1 {
+        position: relative;
+        left:  15px;
         width: 100%;
-        font-size: 28px; /* حجم أنسب للموبايل */
+        font-size: 26px; /* صغرتها شوية عشان تناسب الموبايل */
         text-align: center;
-        left: 0; /* إلغاء الإزاحة */
-        margin-bottom: 40px;
+        margin: 0 auto 30px auto;
+        margin-bottom: 70px;
     }
 
-    .ul3 {
-        margin-left: 0; /* إلغاء الـ 150px الكارثية */
+    .coder.sec2 ul {
+        position: relative;
+        right: 60px;
+        text-align: start;
         width: 100%;
-        right: 0; /* إلغاء الإزاحة */
-        padding: 0 15px;
+        padding: 0 10px;
     }
-
-    .ul3 li {
-        font-size: 15px;
-        text-align: left; /* الحفاظ على الخط الجانبي في مكانه */
+    .sec2 ul li{
+        font-size: 14px;
     }
 
     .imgs.gallary {
         width: 100vw; /* جعل الجاليري بعرض الشاشة الفعلي */
         position: relative;
         left: -20px; /* تعويض الـ padding الخاص بالأب ليكون الجاليري full width */
-        bottom: 0; /* إلغاء الـ bottom القديم */
-        margin-top: 40px;
+        bottom: 150px; /* إلغاء الـ bottom القديم */
+
+    }
+    .imgs.gallary .imag{
+            height: 140px;
+            width: 100px;
     }
 
     /* إلغاء العناصر الثقيلة في الموبايل كما فعلت أنت */
