@@ -464,7 +464,7 @@ transition: .5s;
     }
     .nav ul {
                 padding-bottom: 0;
-        margin-top: 20px;
+        margin-top: 27px;
         margin-right: 25px;
         gap: .8rem;
     }
@@ -2166,7 +2166,6 @@ fill: black;
 }
 .name{
     margin-top: 50px;
-    overflow: hidden;
     position: relative;
     bottom: 60px;
     color: rgba(255, 255, 255, 0);
@@ -2297,19 +2296,20 @@ fill: black;
     }
 
     .name {
-        font-size: 55px; /* حجم مناسب لعرض شاشات الموبايل (مثلاً iPhone/Android) */
+        font-size: 65px; /* حجم مناسب لعرض شاشات الموبايل (مثلاً iPhone/Android) */
         letter-spacing: -2px;
         word-spacing: 0px;
         -webkit-text-stroke: 2px #555;
         text-align: center;
-        margin-top: 55px;
-        position: relative;
+        margin-top: 0;
+        position: absolute;
+        
+
 
     }
 
     .name:hover {
-        margin-top: 50px; /* نلغي حركة الـ margin-top في الموبايل عشان متهزش التصميم */
-        -webkit-text-stroke: 2px #000000;
+        margin-top: 0; /* نلغي حركة الـ margin-top في الموبايل عشان متهزش التصميم */
     }
     .logoo{
         position: relative;
