@@ -1135,8 +1135,6 @@ body{
     }
 
     .coder.sec2 h1 {
-        position: relative;
-        left:  15px;
         width: 100%;
         font-size: 26px; /* صغرتها شوية عشان تناسب الموبايل */
         text-align: center;
@@ -1145,8 +1143,6 @@ body{
     }
 
     .coder.sec2 ul {
-        position: relative;
-        right: 60px;
         text-align: start;
         width: 100%;
         padding: 0 10px;
