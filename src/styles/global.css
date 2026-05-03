@@ -1141,6 +1141,12 @@ body{
     padding-top: 50px;
     margin-top: 70px; /* بدل bottom: 200px عشان ميغطيش على اللي فوقه */
 }
+#Model{
+    display: none;
+}
+.parallax-media{
+    display: none;
+}
 
 }
 /*///////////////////////////////////////////////////////////// */
@@ -2151,9 +2157,6 @@ fill: black;
         right: 5px;
         width: 150px;
     }
-html, body {
-    overflow-x: hidden;
-}
 p, h1, span {
     overflow-wrap: break-word;
     word-wrap: break-word;
