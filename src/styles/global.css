@@ -551,6 +551,8 @@ transition: .5s;
     object-fit: cover; /* يغطي المساحة بالكامل بدون تمطيط */
     z-index: 1; /* فوق الخلفية الأساسية */
     will-change: transform;
+    background-position: center;
+    background-size: cover;
 
 }
 
@@ -2143,7 +2145,7 @@ fill: black;
         right: 5px;
         width: 150px;
     }
-    .home, .about-section, .works, .seif-section, .foter, .work-section, .about-section {
+    .home, .about-section, .works, .seif-section, .foter, .work-section, .about-section, .content, .imgs.gallary, .coder {
         overflow-x: hidden;
     }
 

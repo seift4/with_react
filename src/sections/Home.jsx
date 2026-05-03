@@ -54,7 +54,6 @@ const Home = () => {
             {loading && <Preloader onComplete={() => setLoading(false)} />}
             
             <section className="home" id="home" style={{ visibility: loading ? 'hidden' : 'visible' }}>
-              
                 <div className="text">
                     <div className="top pr">
                         <h1>HELLO!</h1>
