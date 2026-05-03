@@ -738,6 +738,9 @@ transition: .5s;
 
 /* للشاشات الصغيرة جداً (X-Small) */
 @media (max-width: 480px) {
+    .home{
+        overflow-x: hidden;
+    }
 body{
     overflow-x: hidden;
 }
@@ -948,6 +951,9 @@ body{
 }
 /* للشاشات المتوسطة (Tablets) */
 @media (max-width: 450px) {
+    .about-section{
+        overflow-x: hidden;
+    }
     .coder.s1 ul{
         width: 85%;
 
@@ -1146,6 +1152,9 @@ body{
 }
 .parallax-media{
     display: none;
+}
+.work-section{
+    overflow-x: hidden;
 }
 
 }
@@ -1388,6 +1397,7 @@ body{
 
 @media (max-width: 450px) {
     .seif-section{
+        overflow-x: hidden;
         height: 145vh;
     }
     .coder.sec3{
@@ -1900,6 +1910,7 @@ fill: black;
 /* للشاشات الصغيرة جداً (X-Small) */
 @media (max-width: 480px) {
     .works{
+        overflow-x: hidden;
         height: auto;
         padding-bottom: 60px;
     }
@@ -2104,7 +2115,9 @@ fill: black;
 
 /* للشاشات الصغيرة (Mobile) */
 @media (max-width: 768px) {
+
     .foter {
+        overflow-x: hidden;
         padding-top: 20px;
         height: auto; /* الموبايل محتاج طول مرن مش ثابت */
         gap: 40px;
@@ -2161,4 +2174,5 @@ p, h1, span {
     overflow-wrap: break-word;
     word-wrap: break-word;
 }
+
 }
