@@ -709,8 +709,12 @@ transition: .5s;
     .home{
         gap: 0;
     }
+    .bottom{
+        position: relative;
+        bottom: 50px;
+    }
     .bottom p {
-        font-size: 170px; /* تصغير الكلمة الضخمة شوية عشان متخرجش بره */
+        font-size: 140px; /* تصغير الكلمة الضخمة شوية عشان متخرجش بره */
     }
     .bottom video {
         width: 320px; /* تصغير عرض الفيديو ليناسب التابلت */
