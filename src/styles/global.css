@@ -281,40 +281,46 @@ body {
 
 
 
-
-
+/* التنسيق الأساسي (قبل السكرول) */
 .nav {
     position: fixed;
     z-index: 19900;
-    
-    /* دمجنا الـ translateX مع الـ translateZ في سطر واحد */
-    /* الـ translateZ مهم جداً لإجبار المتصفح على استخدام كارت الشاشة (GPU) */
-    transform: translateX(-50%) translateZ(0); 
-    
-    /* اللون والبلور */
-    background: rgba(255, 255, 255, 0.1) !important; 
-    backdrop-filter: blur(12px) saturate(150%) !important;
-    -webkit-backdrop-filter: blur(12px) saturate(150%) !important;
-    
-    /* الحدود والظل */
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2) !important;
-
-    /* التنسيق */
-    top: 0; /* تأكد من وجود top مع fixed */
+    top: 0;
     left: 50%;
-    width: 95%; /* أفضل قليلاً من 99% لإظهار الحواف */
+    transform: translateX(-50%) translateZ(0); 
+    width: 95%;
     height: 10vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 2rem; /* padding جانبي بدل الـ top */
-    border-radius: 40px;
+    padding: 0 2rem;
     margin-top: 20px;
+    border-radius: 40px;
+    isolation: isolate;
+
+    /* هنا التغيير: اجعل الخلفية والحدود شفافة تماماً في البداية */
+    background: transparent !important;
+    border: 1px solid transparent !important;
+    box-shadow: none !important;
+    backdrop-filter: blur(0px) !important;
+    -webkit-backdrop-filter: blur(0px) !important;
     
-    /* إضافة هامة جداً لضمان عدم حدوث مشاكل في القص */
-    isolation: isolate; 
+    /* إضافة انميشن ناعم وقت التحول */
+    transition: all 0.4s ease-in-out;
 }
+
+/* التنسيق اللي هيشتغل لما تعمل سكرول */
+.nav.scrolled {
+    background: rgba(255, 255, 255, 0.1) !important; 
+    backdrop-filter: blur(12px) saturate(150%) !important;
+    -webkit-backdrop-filter: blur(12px) saturate(150%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2) !important;
+    /* لو عايز تشيل الـ margin وقت السكرول ممكن تضيفها هنا */
+    margin-top: 10px; 
+}
+
+
 .nav ul {
     margin-bottom: 10px;
     margin-right: 30px;
@@ -1090,7 +1096,9 @@ body{
         min-width: 100% !important; /* منع العنصر من تجاوز عرض الشاشة */
         flex: none;
     }
-    
+    .skills-marquee {
+        padding: 20px 0;
+    }
 
    
 }
@@ -1307,8 +1315,8 @@ body{
 
     /* 4. كارت الصورة */
     .imag {
-        width: 220px; /* صغر العرض شوية للموبايل */
-        height: 150px;
+        width: 150px; /* صغر العرض شوية للموبايل */
+        height: 100px;
         flex-shrink: 0; /* امنع الصور إنها تصغر عن حجمها */
     }
       .coder2 ul{

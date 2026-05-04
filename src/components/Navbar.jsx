@@ -2,9 +2,11 @@ import React, { useEffect, useState } from 'react';
 
 const Navbar = () => {
     const [activeSection, setActiveSection] = useState('home');
+    // الحالة الخاصة بالتحكم في شكل الناف بار عند السكرول
+    const [isScrolled, setIsScrolled] = useState(false);
 
     useEffect(() => {
-        // تحديد السكاشن اللي عايزين نراقبها بناءً على الروابط الموجودة
+        // --- الجزء الأول: مراقبة السكاشن (كودك الأصلي) ---
         const sectionIds = ['home', 'about', 'work', 'footer'];
         
         const observerOptions = {
@@ -16,7 +18,6 @@ const Navbar = () => {
         const observerCallback = (entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    // تحديث الحالة بالـ ID بتاع السكشن الظاهر حالياً
                     setActiveSection(entry.target.id);
                 }
             });
@@ -24,18 +25,32 @@ const Navbar = () => {
 
         const observer = new IntersectionObserver(observerCallback, observerOptions);
 
-        // مراقبة كل سكشن
         sectionIds.forEach(id => {
             const section = document.getElementById(id);
             if (section) observer.observe(section);
         });
 
-        // تنظيف الـ observer عند إغلاق المكون
-        return () => observer.disconnect();
+        // --- الجزء الثاني: مراقبة السكرول لتغيير الخلفية ---
+        const handleScroll = () => {
+            if (window.scrollY > 50) {
+                setIsScrolled(true);
+            } else {
+                setIsScrolled(false);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        // تنظيف الـ observers والـ events
+        return () => {
+            observer.disconnect();
+            window.removeEventListener('scroll', handleScroll);
+        };
     }, []);
 
     return (
-        <nav className="nav">
+        /* هنا بنضيف الـ class "scrolled" لو الـ state بقت true */
+        <nav className={`nav ${isScrolled ? 'scrolled' : ''}`}>
             <a href="#home">
                 <img 
                     className="logo" 
