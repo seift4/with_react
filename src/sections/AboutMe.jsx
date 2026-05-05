@@ -46,7 +46,7 @@ const AboutMe = () => {
                             <img src="/img/Smiling.png" alt="Seif Tarek" />
                         </div>
                         <div className="back">
-                            <h2 className="reveal">FRONTEND DEVELOPER</h2>
+                            <h2 className="reveal">WEB DEVELOPER</h2>
                         </div>
                     </div>
                 </div>

@@ -225,7 +225,7 @@ overflow: hidden; /* مهم جداً عشان الفيديو ميتخطاش حد
 .cursor-dot.cursor-photo {
   width: 107px; /* كبرنا الحجم عشان يشيل الكلمة */
   height: 107px;
-  background-color: #a6a4a478; /* أو اللون اللي تحبه */
+  background-color: #1b1b1bdb; /* أو اللون اللي تحبه */
   mix-blend-mode: normal; /* عشان الكلمة تبان بوضوح */
   display: flex;
   align-items: center;
@@ -1421,6 +1421,7 @@ body, html {
 
 
 .ul3 li {
+    text-align: start;
         box-sizing: border-box;
     font-size: clamp(0.9rem, 2vw, 1.1rem);
     color: #ccc;
@@ -1623,7 +1624,6 @@ body, html {
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: 100px;
             
 }
 .works a{
@@ -1730,7 +1730,6 @@ fill: black;
 .imgs {
     text-align: center;
     margin-left: 190px;
-    margin-top: 100px;
   overflow: hidden; 
   width: 80%;
   background-color: var(--bg-color);
@@ -1822,14 +1821,13 @@ fill: black;
 /* --- الكود الأساسي المعدل بالوحدات المرنة --- */
 .works {
     padding-top: 6.25rem; /* 100px */
-    min-height: 100vh; /* أفضل من 220vh لضمان تغطية الشاشة */
+    height: 170vh; /* أفضل من 220vh لضمان تغطية الشاشة */
     width: 100%;
         background-color: #000000;
     z-index: 9899;
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: 6.25rem; /* 100px */
 }
 
 .works a {
@@ -1914,7 +1912,6 @@ fill: black;
 .imgs {
     text-align: center;
     margin-left: 10%;
-    margin-top: 6.25rem;
     overflow: hidden;
     width: 80%;
     padding: 2.5rem 2wem;
@@ -2090,7 +2087,7 @@ fill: black;
 
 .foter{
     padding-top:0px;
-    height: 102vh;
+    height: 95vh;
     width: 100%;
         background-color: #000000;
     z-index: 989979;
@@ -2134,7 +2131,6 @@ fill: black;
     width: 810px;
     text-align: start;
     word-spacing: -5px;
-    margin-bottom: 80px;
         /* التأثير الأساسي: برواز رمادي وقلب شفاف */
     color: transparent;
     -webkit-text-stroke: 1px #d6d6d6;
@@ -2183,7 +2179,7 @@ fill: black;
 .name{
     margin-top: 50px;
     position: relative;
-    bottom: 60px;
+    bottom: 40px;
     color: rgba(255, 255, 255, 0);
   font-family: sans-serif; /* اختار الخط اللي تحبه */
   font-size: 80px;         /* حجم الخط */
