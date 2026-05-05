@@ -965,14 +965,16 @@ body{
 }
 
 .skill-item p {
-    font-family: 'Courier New', Courier, monospace; /* خط يشبه الكود */
     font-weight: bold;
     font-size: 0.9rem;
     letter-spacing: 2px;
         box-sizing: border-box;
 
 }
-
+/* لما الماوس ييجي على الحاوية الكبيرة، وقف حركة التراك اللي جواها */
+.skills-marquee:hover .marquee-track0 {
+    animation-play-state: paused;
+}
 /* --- Media Queries للشاشات المختلفة --- */
 
 /* 1. الشاشات المتوسطة (Tablets) */
@@ -1243,7 +1245,9 @@ body{
     box-shadow: 0 10px 30px rgba(225, 255, 142, 0.15);
     transform: scale(1.05) translateY(-5px);
 }
-
+.imgs.gallary:hover .marquee-track1{
+    animation-play-state: paused;
+}
 .imag:hover img {
         box-sizing: border-box;
 
@@ -2086,7 +2090,7 @@ fill: black;
 
 .foter{
     padding-top:0px;
-    height: 101vh;
+    height: 102vh;
     width: 100%;
         background-color: #000000;
     z-index: 989979;
@@ -2124,7 +2128,7 @@ fill: black;
 
 .p2{
         position: relative;
-    left: 700px; /* ملحوظة: يفضل تستخدم margin أو flex بدل left الثابتة */
+    left: 688px; /* ملحوظة: يفضل تستخدم margin أو flex بدل left الثابتة */
     margin-top: 50px;
     font-size: 40px;
     width: 810px;
@@ -2214,8 +2218,8 @@ fill: black;
     position: relative;
     /* بدلاً من تحديد العرض والارتفاع برقم ثابت صغير، كبر الرقم */
     
-    top: -5px;     /* اضبط الـ top حسب الشكل الجديد */
-    transform: scale(1); /* دي هتكبره بنسبة 50% عن حجمه الحالي من غير ما يغير في ترتيب العناصر اللي جنبه */
+    top: -10px;     /* اضبط الـ top حسب الشكل الجديد */
+    transform: scale(.8); /* دي هتكبره بنسبة 50% عن حجمه الحالي من غير ما يغير في ترتيب العناصر اللي جنبه */
     /* إضافة دي عشان تضمن إن الصورة ما تخرجش برا حدود الـ Nav بشكل وحش */
     object-fit: contain; 
 }
