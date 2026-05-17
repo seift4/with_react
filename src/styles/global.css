@@ -295,8 +295,8 @@ body {
     align-items: center;
     padding: 0 2rem;
     margin-top: 20px;
-    border-radius: 40px;
     isolation: isolate;
+    border-radius: 25px;
 
     /* هنا التغيير: اجعل الخلفية والحدود شفافة تماماً في البداية */
     background: transparent !important;
@@ -405,6 +405,13 @@ transition: .5s;
     bottom: 0rem; /* تعديل بسيط ليتناسب مع الـ flex */
     width: 11rem; /* 175px */
     height: auto;
+}
+@media (max-width: 1600px) {
+    .nav ul{
+        margin-top: 20px;
+        text-align: center;
+        align-items: center;
+    }
 }
 
 /* --- الجزء الخاص بالتجاوب (Responsive) --- */
@@ -902,6 +909,10 @@ body{
     color: #e1ff8e;
     transform: translateX(10px);
 }
+.ul2 li:hover {
+    color: #e1ff8e;
+    transform: translateX(10px);
+}
 
 
 /* تنسيق الـ 3D Model */
@@ -1174,7 +1185,7 @@ body{
     max-width: 600px;
     padding-left: 20px;
       box-sizing: border-box;
-
+transition: 0.3s;
     border-left: 2px solid #e1ff8e; /* خط جانبي بدل الـ bullet التقليدي */
 }
 
@@ -1191,7 +1202,7 @@ body{
 /* معرض الصور (Marquee) */
 .imgs.gallary {
     position: relative;
-    bottom: 200px;
+    bottom: 70px;
     grid-column: 1 / -1; /* ياخد العرض بالكامل تحت الكلام والموديل */
     overflow: hidden;
     padding: 20px 0;
@@ -1254,7 +1265,20 @@ body{
     filter: grayscale(0%) contrast(1);
     transform: scale(1.1);
 }
+/* للشاشات المتوسطة (Tablets) */
+@media (max-width: 1600px) {
 
+    .imgs.gallary{
+        position: relative;
+        bottom: 150px;
+    }
+    .imgs.gallary .imag{
+        width: 230px;
+        height: 150px;
+
+    }
+
+}
 /* شاشات التابلت */
 @media (max-width: 1024px) {
     .content2 {

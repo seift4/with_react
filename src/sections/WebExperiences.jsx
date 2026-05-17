@@ -58,33 +58,39 @@ const WebExperiences = () => {
                 }
             });
         };
+// 3. Gallery Marquee Logic
+const marqueeTrack = marqueeRef.current;
+let animationFrameId;
+let scrollX = 0;
 
-        // 3. Gallery Marquee Logic
-        const marqueeTrack = marqueeRef.current;
-        let animationFrameId;
-        let scrollX = 0;
+if (marqueeTrack) {
+    // منع تكرار الدوبليكيت كل مرة يعمل فيها rerender
+    if (!marqueeTrack.dataset.cloned) {
+        marqueeTrack.innerHTML += marqueeTrack.innerHTML;
+        marqueeTrack.dataset.cloned = "true";
+    }
 
-        if (marqueeTrack) {
-            const content = marqueeTrack.innerHTML;
-            marqueeTrack.innerHTML += content; // مضاعفة الصور للحركة المستمرة
+    const speed = 0.7;
 
-            const animate = () => {
-                scrollX -= 0.7; // سرعة الحركة
-                if (Math.abs(scrollX) >= marqueeTrack.scrollWidth / 2) scrollX = 0;
-                marqueeTrack.style.transform = `translateX(${scrollX}px)`;
-                animationFrameId = requestAnimationFrame(animate);
-            };
-            animate();
+    const animate = () => {
+        scrollX -= speed;
+
+        // لما يوصل لنص المحتوى يرجع للبداية بسلاسة
+        if (Math.abs(scrollX) >= marqueeTrack.scrollWidth / 2) {
+            scrollX = 0;
         }
 
+        marqueeTrack.style.transform = `translate3d(${scrollX}px, 0, 0)`;
 
+        animationFrameId = requestAnimationFrame(animate);
+    };
 
+    animate();
+}
 
-        
-
-        window.addEventListener('scroll', handleReveal);
-        handleReveal();
-        applyGradient();
+window.addEventListener('scroll', handleReveal);
+handleReveal();
+applyGradient();
 
         return () => {
             window.removeEventListener('scroll', handleReveal);
