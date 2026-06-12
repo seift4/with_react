@@ -92,7 +92,9 @@ const Projects = () => {
         { src: "/img/Avatar.mp4", title: "Avatar Characters" },
         { src: "/img/Resturant.mp4", title: "Food Lover" },
         { src: "/img/planets.mp4", title: "List of Planets" },
-        { src: "/img/PORT.mp4", title: "Portfolio" }
+        { src: "/img/PORT.mp4", title: "Portfolio" },
+        { src: "/img/gpa.mp4", title: "GPA" },
+        { src: "/img/book.mp4", title: "BOOKNEST" }
     ];
 
     return (
@@ -109,7 +111,9 @@ const Projects = () => {
                     { name: "Avatar", link: "https://seift4.github.io/AVATAR/", class: "r2" },
                     { name: "Food Lover", link: "https://seift4.github.io/Restaurant-/", class: "r3" },
                     { name: "List of planets", link: "https://seift4.github.io/Space/", class: "r4" },
-                    { name: "portfolio", link: "https://seift4.github.io/Seif_Tarek-/", class: "r5" }
+                    { name: "portfolio", link: "https://seift4.github.io/Seif_Tarek-/", class: "r5" },
+                    { name: "GPA CalculATOR", link: "https://gpa-cal-theta.vercel.app/", class: "r6"},
+                    { name: "BOOK NEST", link: "https://book-nest-l7gp.vercel.app/", class: "r7" }
                 ].map((project, index) => (
                     <a href={project.link} key={index} target="_blank" rel="noreferrer">
                         <div className={`row reveal ${project.class}`}>
