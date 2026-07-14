@@ -39,12 +39,12 @@ const CustomCursor = () => {
 
             // مشاريع r1-r7
             const projectRow = target.closest(
-                '.r1, .r2, .r3, .r4, .r5, .r6, .r7'
+                '.r1, .r2, .r3, .r4, .r5, .r6, .r7, .r8, .r9'
             );
 
             if (projectRow) {
                 const cls = Array.from(projectRow.classList).find((c) =>
-                    ['r1', 'r2', 'r3', 'r4', 'r5', 'r6', 'r7'].includes(c)
+                    ['r1', 'r2', 'r3', 'r4', 'r5', 'r6', 'r7', 'r8', 'r9' ].includes(c)
                 );
 
                 if (cls) {
@@ -77,6 +77,8 @@ const CustomCursor = () => {
             <video className="v5" src="/img/PORT.mp4" autoPlay loop muted playsInline />
             <video className="v6" src="/img/gpa.mp4" autoPlay loop muted playsInline />
             <video className="v7" src="/img/book.mp4" autoPlay loop muted playsInline />
+            <video className="v8" src="/img/beauty.mp4" autoPlay loop muted playsInline />
+            <video className="v9" src="/img/Boukak.mp4" autoPlay loop muted playsInline />
         </div>
     );
 };

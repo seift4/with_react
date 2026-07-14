@@ -94,7 +94,9 @@ const Projects = () => {
         { src: "/img/planets.mp4", title: "List of Planets" },
         { src: "/img/PORT.mp4", title: "Portfolio" },
         { src: "/img/gpa.mp4", title: "GPA" },
-        { src: "/img/book.mp4", title: "BOOKNEST" }
+        { src: "/img/book.mp4", title: "BOOKNEST" },
+        { src: "/img/beauty.mp4", title: "CARMEL BEAUTY" },
+        { src: "/img/Boukak.mp4", title: "Boukak" }
     ];
 
     return (
@@ -113,7 +115,9 @@ const Projects = () => {
                     { name: "List of planets", link: "https://seift4.github.io/Space/", class: "r4" },
                     { name: "portfolio", link: "https://seift4.github.io/Seif_Tarek-/", class: "r5" },
                     { name: "GPA CalculATOR", link: "https://gpa-cal-theta.vercel.app/", class: "r6"},
-                    { name: "BOOK NEST", link: "https://book-nest-l7gp.vercel.app/", class: "r7" }
+                    { name: "BOOK NEST", link: "https://book-nest-l7gp.vercel.app/", class: "r7" },
+                    { name: "CARMEL BEAUTY", link: "https://carmel.beauty/", class: "r8" },
+                    { name: "BOUKAK", link: "https://boukak-s.vercel.app/", class: "r9" }
                 ].map((project, index) => (
                     <a href={project.link} key={index} target="_blank" rel="noreferrer">
                         <div className={`row reveal ${project.class}`}>
