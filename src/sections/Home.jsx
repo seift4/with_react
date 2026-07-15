@@ -4,6 +4,8 @@ import Preloader from './Preloader'; // تأكد من المسار
 const Home = () => {
     const [loading, setLoading] = useState(true);
     const videoRef = useRef(null);
+    const homeRef = useRef(null);
+    const sharpBgRef = useRef(null);
 
     useEffect(() => {
         if (loading) return; // متعملش حاجة طول ما إحنا بنحمل
@@ -47,13 +49,39 @@ const Home = () => {
         handleScroll();
 
         return () => window.removeEventListener('scroll', handleScroll);
-    }, [loading]); // الـ Effect ده هيشتغل أول ما الـ loading يبقى false
+    }, [loading]);
+
+    // تتبع حركة الماوس عشان تأثير الـ blur
+    useEffect(() => {
+        if (loading) return;
+
+        const homeEl = homeRef.current;
+        if (!homeEl) return;
+
+        const handleMouseMove = (e) => {
+            const rect = homeEl.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            if (sharpBgRef.current) {
+                sharpBgRef.current.style.setProperty('--x', `${x}px`);
+                sharpBgRef.current.style.setProperty('--y', `${y}px`);
+            }
+        };
+
+        homeEl.addEventListener('mousemove', handleMouseMove);
+
+        return () => homeEl.removeEventListener('mousemove', handleMouseMove);
+    }, [loading]);
 
     return (
         <>
             {loading && <Preloader onComplete={() => setLoading(false)} />}
             
-            <section className="home" id="home" style={{ visibility: loading ? 'hidden' : 'visible' }}>
+            <section className="home" id="home" ref={homeRef} style={{ visibility: loading ? 'hidden' : 'visible' }}>
+                <div className="home__bg home__bg--blur"></div>
+                <div className="home__bg home__bg--sharp" ref={sharpBgRef}></div>
+
                 <div className="text">
                     <div className="top pr">
                         <h1>HELLO!</h1>
