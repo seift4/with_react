@@ -321,9 +321,6 @@ body {
     padding: 0 2rem;
     isolation: isolate;
     border-radius: 25px;
-    background-color: rgba(0, 0, 0, 0); 
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px); 
     border-radius: 12px;
     padding: 22px 32px; /* زيادة الـ padding الجانبي الداخلي لراحة العناصر */
     gap: 700px;
@@ -607,6 +604,11 @@ transition: .5s;
     justify-content: center;
     gap: 2.8125rem; /* 45px */
     max-width: 90vw; /* عشان م يخرجش بره الشاشة */
+    position: relative;
+    transition: .5s;
+    
+}
+.top:hover{
     opacity: 0;
 }
 
@@ -739,7 +741,7 @@ transition: .5s;
 .home__bg--sharp {
     z-index: 2;
     -webkit-mask-image: radial-gradient(
-        circle 180px at var(--x, 50%) var(--y, 50%),
+        circle 180px at var(--x, 60%) var(--y, 50%),
         black 0%,
         black 60%,
         transparent 100%
