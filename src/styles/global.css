@@ -489,12 +489,14 @@ transition: .5s;
         height: 10vh;
         padding: 0;
         margin-top: 10px ;
+        gap: 65px;
     }
     .nav ul {
                 padding-bottom: 0;
         margin-top: 25px;
-        margin-right: 25px;
+        margin-right: 265px;
         gap: .8rem;
+        
     }
     
     .nav ul li{
