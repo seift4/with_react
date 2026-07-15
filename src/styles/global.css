@@ -856,6 +856,9 @@ body{
     .home:hover .home__bg--sharp {
     opacity: 0;
 }
+.top:hover{
+    opacity: 1;
+}
 }
 
 
