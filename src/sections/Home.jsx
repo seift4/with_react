@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
 import Preloader from './Preloader'; // تأكد من المسار
-
 const Home = () => {
     const [loading, setLoading] = useState(true);
     const videoRef = useRef(null);
@@ -79,9 +78,15 @@ const Home = () => {
             {loading && <Preloader onComplete={() => setLoading(false)} />}
             
             <section className="home" id="home" ref={homeRef} style={{ visibility: loading ? 'hidden' : 'visible' }}>
-                <div className="home__bg home__bg--blur"></div>
-                <div className="home__bg home__bg--sharp" ref={sharpBgRef}></div>
-
+<div 
+    className="home__bg home__bg--blur" 
+    style={{ backgroundImage: `url(${"./img/bg_s.png"})` }}
+></div>
+<div 
+    className="home__bg home__bg--sharp" 
+    ref={sharpBgRef} 
+    style={{ backgroundImage: `url(${"./img/bg_s.png"})` }}
+></div>
                 <div className="text">
                     <div className="top pr">
                         <h1>HELLO!</h1>

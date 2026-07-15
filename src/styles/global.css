@@ -723,7 +723,6 @@ transition: .5s;
 .home__bg {
     position: absolute;
     inset: 0;
-    background-image: url("./img/bg_s.png"); /* غير المسار */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
