@@ -853,6 +853,9 @@ body{
     .bottom p {
         font-size: 50px;
     }
+    .home:hover .home__bg--sharp {
+    opacity: 0;
+}
 }
 
 
