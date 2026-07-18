@@ -89,7 +89,7 @@ const REVEAL_SPEED_FACTOR = 3;
 
 // كبّر الرقم ده لو عايز الانتقال الأفقي بين السكاشن يبقى أبطأ (يحتاج سكرول أكتر)
 // وصغّره (أقل من 1) لو عايزه أسرع. 1 = نفس سرعة ظهور الصور (100vh لكل انتقال)
-const TRANSITION_SPEED_FACTOR = 3 ;
+const TRANSITION_SPEED_FACTOR = 2.5 ;
 
 const ScrollSections = () => {
     const wrapperRef = useRef(null);
