@@ -101,6 +101,8 @@ const Projects = () => {
 
     return (
         <section className="works" id="work" ref={sectionRef}>
+            
+            
             <p className="p reveal">
                 I focus on building elegant, performance-driven websites that feel modern, meaningful, and memorable. I also enjoy exploring motion and interaction, feel free to visit my Playground:
             </p>
@@ -152,6 +154,7 @@ const Projects = () => {
                 </div>
             </div>
         </section>
+        
     );
 };
 

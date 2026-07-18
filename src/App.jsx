@@ -11,15 +11,15 @@ import Footer from './components/Footer.jsx';
 
 // استيراد السكاشن
 import Home from './sections/Home.jsx';
-import About from './sections/About.jsx';
-import WebExperiences from './sections/WebExperiences.jsx';
 import AboutMe from './sections/AboutMe.jsx';
 import Projects from './sections/Projects.jsx';
-
+import ScrollP from './sections/scrollp.jsx';
+import ProcessPage from './sections/ProcessPage.jsx';
+import ExperiencePage from './sections/ExperiencePage.jsx';
 function App() {
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 1.2,        // كل ما زودت الرقم كل ما بقت الحركة أبطأ (جرب من 1 لحد 2)
+      duration: 1.9,        // كل ما زودت الرقم كل ما بقت الحركة أبطأ (جرب من 1 لحد 2)
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // منحنى الحركة (سلس بشكل طبيعي)
       smoothWheel: true,    // تفعيل السلاسة مع الماوس/التراك باد
       touchMultiplier: 1.5, // حساسية اللمس على الموبايل
@@ -46,10 +46,11 @@ function App() {
 
       <main>
         <Home />
-        <About />
-        <WebExperiences />
-        <AboutMe />
+        <AboutMe /> 
+        <ExperiencePage /> 
+        <ProcessPage />
         <Projects />
+        <ScrollP />
       </main>
 
       <Footer />
