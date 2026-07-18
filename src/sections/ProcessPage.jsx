@@ -2,62 +2,71 @@ import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-gsap.registerPlugin(ScrollTrigger);
-
 const ProcessPage = () => {
     const sectionRef = useRef(null);
     const trackFillRef = useRef(null);
     const stepsRef = useRef([]);
 
     useEffect(() => {
+        // تسجيل الـ plugin جوه الـ effect نفسه، ضمان إنه client-side بس
+        gsap.registerPlugin(ScrollTrigger);
+
         const section = sectionRef.current;
         const totalSteps = stepsRef.current.length;
 
         if (!section) return;
 
-        // 1. أنيميشن ظهور فوري ناعم لعناصر الهيدر والـ track عند التحميل
-        const revealElements = section.querySelectorAll('.reveal');
-        gsap.fromTo(revealElements, 
-            { y: 20, opacity: 0 }, 
-            {
-                y: 0,
-                opacity: 1, 
-                duration: 0.8,
-                stagger: 0.15,
-                ease: "power2.out"
-            }
-        );
-
-        // 2. أنيميشن تعبئة الخط ونقاط التتبع بسرعة أبطأ ونعومة أعلى
-        const pinTimeline = gsap.to(trackFillRef.current, {
-            width: "100%",
-            ease: "none",
-            scrollTrigger: {
-                trigger: section,         // الاعتماد على السكشن الرئيسي بالكامل كـ Trigger
-                start: "top 72%",         // يبدأ التنوير مبكراً فور دخول السكشن الشاشة
-                end: "bottom center",     // يمتد على مساحة السكشن كاملة ليكون أبطأ، ويكتمل 100% في منتصف الشاشة
-                scrub: 1.5,               // زيادة القيمة هنا (من 0.5 إلى 1.5) بتبطئ حركة الخط وتجعلها انسيابية جداً
-                onUpdate: (self) => {
-                    const progress = self.progress;
-                    
-                    stepsRef.current.forEach((step, index) => {
-                        if (step) {
-                            const stepTrigger = index / (totalSteps - 1);
-                            if (progress >= stepTrigger && progress > 0) {
-                                step.classList.add("done");
-                            } else {
-                                step.classList.remove("done");
-                            }
-                        }
-                    });
+        // استخدام gsap.context() لعمل scope للأنيميشن على الكومبوننت ده بس
+        const ctx = gsap.context(() => {
+            const revealElements = section.querySelectorAll('.reveal');
+            gsap.fromTo(revealElements,
+                { y: 20, opacity: 0 },
+                {
+                    y: 0,
+                    opacity: 1,
+                    duration: 0.8,
+                    stagger: 0.15,
+                    ease: "power2.out"
                 }
-            }
-        });
+            );
 
-        // 3. تنظيف وتفريغ الذاكرة عند الخروج من المكون
+            gsap.to(trackFillRef.current, {
+                width: "100%",
+                ease: "none",
+                scrollTrigger: {
+                    trigger: section,
+                    start: "top 72%",
+                    end: "bottom center",
+                    scrub: 1.5,
+                    invalidateOnRefresh: true, // يعيد حساب القيم عند الـ refresh
+                    onUpdate: (self) => {
+                        const progress = self.progress;
+                        stepsRef.current.forEach((step, index) => {
+                            if (step) {
+                                const stepTrigger = index / (totalSteps - 1);
+                                if (progress >= stepTrigger && progress > 0) {
+                                    step.classList.add("done");
+                                } else {
+                                    step.classList.remove("done");
+                                }
+                            }
+                        });
+                    }
+                }
+            });
+        }, sectionRef);
+
+        // إعادة حساب القياسات بعد ما كل حاجة (خطوط/صور) تخلص تحميل
+        const handleLoad = () => ScrollTrigger.refresh();
+        window.addEventListener("load", handleLoad);
+
+        // تأخير بسيط كمان كـ fallback لو فيه أنيميشنز/خطوط بتتحمل بعد الـ load event
+        const refreshTimeout = setTimeout(() => ScrollTrigger.refresh(), 500);
+
         return () => {
-            pinTimeline.scrollTrigger?.kill();
-            ScrollTrigger.getAll().forEach(t => t.kill());
+            ctx.revert(); // بيمسح بس اللي اتعمله جوه الكومبوننت ده
+            window.removeEventListener("load", handleLoad);
+            clearTimeout(refreshTimeout);
         };
     }, []);
 
@@ -75,15 +84,15 @@ const ProcessPage = () => {
                     <div className="section-eyebrow">ORDER TRACKING</div>
                     <h2>How a project ships</h2>
                 </div>
-                
+
                 <div className="track reveal">
                     <div className="track-line"></div>
                     <div className="track-fill" ref={trackFillRef}></div>
-                    
+
                     {stepsData.map((step, index) => (
-                        <div 
-                            className="track-step" 
-                            key={index} 
+                        <div
+                            className="track-step"
+                            key={index}
                             ref={(el) => (stepsRef.current[index] = el)}
                         >
                             <div className="track-node">{step.num}</div>
