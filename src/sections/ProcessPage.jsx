@@ -1,72 +1,71 @@
 import { useEffect, useRef } from 'react';
-import { gsap, ScrollTrigger } from '../lib/gsap';
-gsap.registerPlugin(ScrollTrigger); // مباشرة هنا، بره الكومبوننت
 
 const ProcessPage = () => {
     const sectionRef = useRef(null);
     const trackFillRef = useRef(null);
     const stepsRef = useRef([]);
+    const rafRef = useRef(null);
 
     useEffect(() => {
-        // تسجيل الـ plugin جوه الـ effect نفسه، ضمان إنه client-side بس
-        gsap.registerPlugin(ScrollTrigger);
-
         const section = sectionRef.current;
         const totalSteps = stepsRef.current.length;
-
         if (!section) return;
 
-        // استخدام gsap.context() لعمل scope للأنيميشن على الكومبوننت ده بس
-        const ctx = gsap.context(() => {
-            const revealElements = section.querySelectorAll('.reveal');
-            gsap.fromTo(revealElements,
-                { y: 20, opacity: 0 },
-                {
-                    y: 0,
-                    opacity: 1,
-                    duration: 0.8,
-                    stagger: 0.15,
-                    ease: "power2.out"
-                }
-            );
+        // 1. ظهور ناعم للهيدر والـ track عند التحميل (وقتي، مش مربوط بسكرول)
+        const revealElements = section.querySelectorAll('.reveal');
+        revealElements.forEach((el, i) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            requestAnimationFrame(() => {
+                setTimeout(() => {
+                    el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, i * 150);
+            });
+        });
 
-            gsap.to(trackFillRef.current, {
-                width: "100%",
-                ease: "none",
-                scrollTrigger: {
-                    trigger: section,
-                    start: "top 72%",
-                    end: "bottom center",
-                    scrub: 1.5,
-                    invalidateOnRefresh: true, // يعيد حساب القيم عند الـ refresh
-                    onUpdate: (self) => {
-                        const progress = self.progress;
-                        stepsRef.current.forEach((step, index) => {
-                            if (step) {
-                                const stepTrigger = index / (totalSteps - 1);
-                                if (progress >= stepTrigger && progress > 0) {
-                                    step.classList.add("done");
-                                } else {
-                                    step.classList.remove("done");
-                                }
-                            }
-                        });
+        // 2. حلقة قراءة الموضع الحقيقي للعنصر على الشاشة في كل فريم
+        //    getBoundingClientRect() بيرجع الموضع البصري الفعلي حتى لو Lenis
+        //    بيحرك المحتوى بـ transform بدل ما يحرك السكرول الحقيقي للمتصفح
+        const updateProgress = () => {
+            const rect = section.getBoundingClientRect();
+            const viewportHeight = window.innerHeight;
+
+            // نفس منطق start: "top 72%" و end: "bottom center" بتاعت GSAP
+            const startPoint = viewportHeight * 0.72;
+            const endPoint = viewportHeight * 0.5;
+            const sectionHeight = rect.height;
+
+            // المسافة اللي هيقطعها الـ top بتاع السكشن من نقطة البداية لنقطة النهاية
+            const totalDistance = startPoint - endPoint + sectionHeight;
+            const distanceTravelled = startPoint - rect.top;
+
+            let progress = distanceTravelled / totalDistance;
+            progress = Math.max(0, Math.min(1, progress));
+
+            if (trackFillRef.current) {
+                trackFillRef.current.style.width = `${progress * 100}%`;
+            }
+
+            stepsRef.current.forEach((step, index) => {
+                if (step) {
+                    const stepTrigger = index / (totalSteps - 1);
+                    if (progress >= stepTrigger && progress > 0) {
+                        step.classList.add('done');
+                    } else {
+                        step.classList.remove('done');
                     }
                 }
             });
-        }, sectionRef);
 
-        // إعادة حساب القياسات بعد ما كل حاجة (خطوط/صور) تخلص تحميل
-        const handleLoad = () => ScrollTrigger.refresh();
-        window.addEventListener("load", handleLoad);
+            rafRef.current = requestAnimationFrame(updateProgress);
+        };
 
-        // تأخير بسيط كمان كـ fallback لو فيه أنيميشنز/خطوط بتتحمل بعد الـ load event
-        const refreshTimeout = setTimeout(() => ScrollTrigger.refresh(), 500);
+        rafRef.current = requestAnimationFrame(updateProgress);
 
         return () => {
-            ctx.revert(); // بيمسح بس اللي اتعمله جوه الكومبوننت ده
-            window.removeEventListener("load", handleLoad);
-            clearTimeout(refreshTimeout);
+            if (rafRef.current) cancelAnimationFrame(rafRef.current);
         };
     }, []);
 
