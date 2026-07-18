@@ -1,5 +1,9 @@
 import { useEffect, useRef } from 'react';
-import { gsap, ScrollTrigger } from '../lib/gsap';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger); // مباشرة هنا، بره الكومبوننت
+
 const ProcessPage = () => {
     const sectionRef = useRef(null);
     const trackFillRef = useRef(null);
