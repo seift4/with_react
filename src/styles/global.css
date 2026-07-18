@@ -2404,20 +2404,23 @@ body{
   position: relative;
   left: 28px;
 }
+.main-title {
+    left: 28px;
+}
 /* الفقرة النصية الوصفية */
 .left-desc {
-  font-family: var(--mono);
-  color: #635d55; /* لون رمادي دافئ مدمج مع الخلفية */
-  font-size: 14.5px;
-  line-height: 1.65;
-  font-weight: 400;
-  max-width: 335px;
-  
+
   position: relative;
   left: 28px;
   margin: 10px 0 65px 0; /* مسافة مريحة ومطابقة للصورة قبل التايملاين */
 }
 
+.timeline-horizontal {
+
+  
+  position: relative;
+  left: 34px;
+}
 }
 
 
@@ -2655,7 +2658,8 @@ body{
         font-size: 1rem;
     }
     
-*{
- overflow-x: hidden;   
+html,
+body {
+  overflow-x: hidden;
 }
 }
