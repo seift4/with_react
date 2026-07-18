@@ -48,7 +48,7 @@ const AboutMe  = () => {
     }, []);
 
     return (
-        <section className="about-section" ref={sectionRef}>
+        <section className="about-section" id='about' ref={sectionRef}>
             <div className="about-container">
                 
                 {/* الجزء الأيسر: الصورة والـ Badge */}

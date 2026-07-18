@@ -320,7 +320,7 @@ body {
 
 /* التنسيق اللي هيشتغل لما تعمل سكرول */
 .nav.scrolled {
-     background: rgba(0, 0, 0, 0.67);
+     background: rgba(0, 0, 0, 0.684);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid var(--glass-border);
@@ -1328,7 +1328,7 @@ fill: black;
   max-width: 1100px;
   margin: 0 auto;
   position: relative;
-  top: 140px;
+  top: 170px;
 }
 
 .section-head {
@@ -1485,7 +1485,9 @@ fill: black;
     margin: 0;
     max-width: 100%;
   }
+  #process{}
 }
+
 
 
 
@@ -1785,7 +1787,7 @@ fill: black;
 }
  .p {
     position: relative;
-    left: 700px; /* ملحوظة: يفضل تستخدم margin أو flex بدل left الثابتة */
+    left: 762px; /* ملحوظة: يفضل تستخدم margin أو flex بدل left الثابتة */
     margin-top: 50px;
     font-size: 40px;
     width: 810px;
@@ -1810,7 +1812,7 @@ fill: black;
 
 .p2{
         position: relative;
-    left: 688px; /* ملحوظة: يفضل تستخدم margin أو flex بدل left الثابتة */
+    left: 768px; /* ملحوظة: يفضل تستخدم margin أو flex بدل left الثابتة */
     margin-top: 50px;
     font-size: 40px;
     width: 810px;
