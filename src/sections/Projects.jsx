@@ -111,13 +111,12 @@ const Projects = () => {
             <div className="projects">
                 {[
                     { name: "Mavero", link: "https://maveroagency.com/", class: "r1" },
-                    { name: "Avatar", link: "https://seift4.github.io/AVATAR/", class: "r2" },
-                    { name: "Food Lover", link: "https://seift4.github.io/Restaurant-/", class: "r3" },
-                    { name: "List of planets", link: "https://seift4.github.io/Space/", class: "r4" },
-                    { name: "GPA CalculATOR", link: "https://gpa-cal-theta.vercel.app/", class: "r6"},
-                    { name: "BOOK NEST", link: "https://book-nest-l7gp.vercel.app/", class: "r7" },
+                    { name: "BOUKAK", link: "https://boukak-s.vercel.app/", class: "r9" },
                     { name: "CARMEL BEAUTY", link: "https://carmel.beauty/", class: "r8" },
-                    { name: "BOUKAK", link: "https://boukak-s.vercel.app/", class: "r9" }
+                    { name: "BOOK NEST", link: "https://book-nest-l7gp.vercel.app/", class: "r7" },
+                    { name: "Food Lover", link: "https://seift4.github.io/Restaurant-/", class: "r3" },
+                    { name: "Avatar", link: "https://seift4.github.io/AVATAR/", class: "r2" },
+                    { name: "GPA CalculATOR", link: "https://gpa-cal-theta.vercel.app/", class: "r6"}
                 ].map((project, index) => (
                     <a href={project.link} key={index} target="_blank" rel="noreferrer">
                         <div className={`row reveal ${project.class}`}>

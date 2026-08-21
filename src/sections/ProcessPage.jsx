@@ -86,7 +86,7 @@ const ProcessPage = () => {
 
                 <div className="track reveal">
                     <div className="track-line"></div>
-                    <div className="track-fill" ref={trackFillRef}></div>
+                    <div className="track-fill reveal" ref={trackFillRef}></div>
 
                     {stepsData.map((step, index) => (
                         <div

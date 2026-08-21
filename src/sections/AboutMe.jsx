@@ -3,6 +3,7 @@ import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
+
 gsap.registerPlugin(ScrollTrigger);
 
 const AboutMe  = () => {
@@ -52,7 +53,7 @@ const AboutMe  = () => {
             <div className="about-container">
                 
                 {/* الجزء الأيسر: الصورة والـ Badge */}
-                <div className="about-image-column" ref={imageWrapperRef}>
+                <div className="about-image-column reveal" ref={imageWrapperRef}>
                     <div className="image-wrapper">
                         <img 
                             src="/img/sef.jpeg" 
@@ -61,7 +62,7 @@ const AboutMe  = () => {
                             id="seif"
                         />
                         {/* بطاقة الموقع الصغيرة أسفل الصورة */}
-                        <div className="location-badge">
+                        <div className="location-badge reveal">
                             <span className="location-city">Cairo</span>
                             <span className="location-country">EGYPT</span>
                         </div>
@@ -69,7 +70,7 @@ const AboutMe  = () => {
                 </div>
 
                 {/* الجزء الأيمن: النصوص والكلمات الدلالية */}
-                <div className="about-content-column" ref={contentRef}>
+                <div className="about-content-column reveal"  ref={contentRef}>
                     <span className="about-meta">[ ABOUT ]</span>
                     
                     <h2 className="about-main-title">
@@ -83,7 +84,7 @@ const AboutMe  = () => {
                     I focus on building fast, responsive, and user-friendly web applications with clean, maintainable code. I enjoy turning ideas into real products, solving complex problems, and collaborating with clients to deliver modern, high-quality digital experiences from concept to deployment.</p>
 
                     {/* الكبسولات الدلالية (Tags) */}
-                    <div className="about-tags-container">
+                    <div className="about-tags-container reveal">
                         <span className="about-tag">Web Design</span>
                         <span className="about-tag">Web Developer</span>
                         <span className="about-tag">AI For UX</span>

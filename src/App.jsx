@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import Lenis from 'lenis';
 import 'lenis/dist/lenis.css';
 import './styles/global.css';
-import { gsap, ScrollTrigger } from './lib/gsap'; // ضيف السطر ده
+import { gsap, ScrollTrigger } from './lib/gsap';
 
 // استيراد المكونات
 import Navbar from './components/Navbar.jsx';
@@ -20,6 +20,46 @@ import ProcessPage from './sections/ProcessPage.jsx';
 import ExperiencePage from './sections/ExperiencePage.jsx';
 
 function App() {
+  // ✅ كود الـ Reveal اتحط هنا مباشرة بدل الهوك المنفصل
+  useEffect(() => {
+    const threshold = 0.15;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold }
+    );
+
+    const observeAll = () => {
+      const elements = document.querySelectorAll('.reveal:not(.active)');
+      elements.forEach((el) => observer.observe(el));
+    };
+
+    // راقب أي تغييرات في الـ DOM (زي ظهور محتوى بعد اختفاء الـ Loader)
+    const mutationObserver = new MutationObserver(() => {
+      observeAll();
+    });
+
+    mutationObserver.observe(document.body, {
+      childList: true,
+      subtree: true,
+    });
+
+    // ونفذها فورًا كمان لأي عناصر موجودة بالفعل
+    observeAll();
+
+    return () => {
+      observer.disconnect();
+      mutationObserver.disconnect();
+    };
+  }, []);
+
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.9,
@@ -29,7 +69,6 @@ function App() {
       wheelMultiplier: 1,
     });
 
-    // اربط Lenis بـ ScrollTrigger عشان يحسوا ببعض
     lenis.on('scroll', ScrollTrigger.update);
 
     gsap.ticker.add((time) => {
@@ -45,7 +84,7 @@ function App() {
 
     return () => {
       lenis.destroy();
-      gsap.ticker.remove(raf); // تنظيف، احتياطي
+      gsap.ticker.remove(raf);
     };
   }, []);
 
@@ -57,8 +96,8 @@ function App() {
 
       <main>
         <Home />
-        <AboutMe /> 
-        <ExperiencePage /> 
+        <AboutMe />
+        <ExperiencePage />
         <ProcessPage />
         <Projects />
         <ScrollP />

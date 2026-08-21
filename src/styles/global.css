@@ -1,6 +1,5 @@
 .reveal {
     opacity: 0;
-    /* تحويل 50px لـ 3.125rem */
     transform: translateY(3.125rem) scale(0.95);
     transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     visibility: hidden;

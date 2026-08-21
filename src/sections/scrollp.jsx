@@ -210,7 +210,7 @@ const ScrollSections = () => {
             ref={wrapperRef}
             style={{ height: `${wrapperHeightVh}vh`, position: 'relative' }}
         >
-            <div className="scroll-sections-sticky">
+            <div className="scroll-sections-sticky reveal">
                 <div className="scroll-sections-track" ref={trackRef}>
                     {sectionsData.map((section, sIndex) => (
                         <div
